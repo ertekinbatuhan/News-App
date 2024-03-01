@@ -30,13 +30,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         tableView.dataSource = self
         title = "News"
         
-       // view.backgroundColor = .black
-        
-        
         createSearchBar()
-        
-        
-        
         
         APICaller.shared.getTopStories{ [weak self ]result in
             switch result {
@@ -51,25 +45,16 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
                     self?.tableView.reloadData()
                 }
                 
-               
             case .failure(let error):
                 print(error)
-                
-                
             }
-            
         }
-        
-        
     }
     
     private func createSearchBar() {
-        
         navigationItem.searchController = searchViewController
         searchViewController.searchBar.delegate = self
-        
     }
-    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -113,12 +98,10 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         return 150
     }
     
-   
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text , !text.isEmpty else {
             return
         }
-        
         
         APICaller.shared.search(with: text) { [weak self ] result in
             
