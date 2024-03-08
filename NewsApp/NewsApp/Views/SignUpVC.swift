@@ -1,5 +1,5 @@
 //
-//  SignUpVC.swift
+//  LoginVC.swift
 //  NewsApp
 //
 //  Created by Batuhan Berk Ertekin on 8.03.2024.
