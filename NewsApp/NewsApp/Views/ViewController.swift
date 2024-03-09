@@ -98,6 +98,19 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         return 150
     }
     
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let addAction = UIContextualAction(style: .normal, title: "Add Favorites") {(contextualAction , view , boolValue) in
+            
+            print("\(self.articles[indexPath.row]) tıklandı")
+        }
+                                           
+            return UISwipeActionsConfiguration(actions: [addAction])
+    }
+    
+    
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text , !text.isEmpty else {
             return

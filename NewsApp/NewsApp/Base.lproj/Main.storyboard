@@ -22,23 +22,100 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="-663"/>
+            <point key="canvasLocation" x="1424" y="-902"/>
         </scene>
         <!--FavoriteVC-->
         <scene sceneID="lQE-tn-wAO">
             <objects>
                 <viewController id="ZeQ-ZP-wVB" customClass="FavoriteVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="icV-2Z-VqT">
+                    <view key="view" contentMode="scaleToFill" id="9QS-R1-EyR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Cqw-we-s1Y"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="T6m-Vf-DkS">
+                                <rect key="frame" x="0.0" y="96" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZeQ-ZP-wVB" id="Ovr-mP-tP8"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mgs-Af-izg">
+                                <rect key="frame" x="0.0" y="152" width="393" height="602"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" rowHeight="178" id="YTD-Ty-6b6" customClass="FavoritesTableViewCell" customModule="NewsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="178"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YTD-Ty-6b6" id="2Me-ug-f5u">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="178"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pDk-AV-K04">
+                                                    <rect key="frame" x="20" y="11" width="353" height="156"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase_28dp.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Hk-n1-N2V">
+                                                            <rect key="frame" x="56" y="0.0" width="240" height="128"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="240" id="Mi8-q8-Ydf"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-JR-zE0">
+                                                            <rect key="frame" x="16" y="136" width="321" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="ozH-xV-Oop"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="8Hk-n1-N2V" firstAttribute="top" secondItem="pDk-AV-K04" secondAttribute="top" id="0M8-px-QeZ"/>
+                                                        <constraint firstItem="a3t-JR-zE0" firstAttribute="leading" secondItem="pDk-AV-K04" secondAttribute="leading" constant="16" id="DRz-hv-HfY"/>
+                                                        <constraint firstItem="8Hk-n1-N2V" firstAttribute="centerX" secondItem="a3t-JR-zE0" secondAttribute="centerX" id="O32-Eo-xx8"/>
+                                                        <constraint firstItem="8Hk-n1-N2V" firstAttribute="centerX" secondItem="pDk-AV-K04" secondAttribute="centerX" id="W3J-el-hAm"/>
+                                                        <constraint firstItem="8Hk-n1-N2V" firstAttribute="leading" secondItem="pDk-AV-K04" secondAttribute="leading" constant="56" id="XtU-wh-xML"/>
+                                                        <constraint firstAttribute="bottom" secondItem="a3t-JR-zE0" secondAttribute="bottom" constant="-1" id="ak9-ST-ysA"/>
+                                                        <constraint firstItem="a3t-JR-zE0" firstAttribute="top" secondItem="8Hk-n1-N2V" secondAttribute="bottom" constant="8" symbolic="YES" id="bEO-Xl-19X"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pDk-AV-K04" firstAttribute="leading" secondItem="2Me-ug-f5u" secondAttribute="leadingMargin" id="5cd-Kd-QsU"/>
+                                                <constraint firstItem="pDk-AV-K04" firstAttribute="top" secondItem="2Me-ug-f5u" secondAttribute="topMargin" id="Obe-5n-sal"/>
+                                                <constraint firstItem="pDk-AV-K04" firstAttribute="bottom" secondItem="2Me-ug-f5u" secondAttribute="bottomMargin" id="pUq-Q4-2QO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="designView" destination="pDk-AV-K04" id="DrV-jC-8KK"/>
+                                            <outlet property="newsImageView" destination="8Hk-n1-N2V" id="I0J-83-JXa"/>
+                                            <outlet property="newsLabel" destination="a3t-JR-zE0" id="HDA-uJ-73e"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zpq-XX-zbM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T6m-Vf-DkS" firstAttribute="leading" secondItem="9QS-R1-EyR" secondAttribute="leading" id="3N8-Yd-EAw"/>
+                            <constraint firstItem="mgs-Af-izg" firstAttribute="bottom" secondItem="Zpq-XX-zbM" secondAttribute="bottom" id="6F8-aE-DjD"/>
+                            <constraint firstItem="T6m-Vf-DkS" firstAttribute="trailing" secondItem="mgs-Af-izg" secondAttribute="trailing" id="7O8-4A-0rR"/>
+                            <constraint firstItem="mgs-Af-izg" firstAttribute="top" secondItem="T6m-Vf-DkS" secondAttribute="bottom" id="8ij-ee-2ly"/>
+                            <constraint firstAttribute="trailing" secondItem="T6m-Vf-DkS" secondAttribute="trailing" id="fcY-ry-9ZN"/>
+                            <constraint firstItem="T6m-Vf-DkS" firstAttribute="leading" secondItem="mgs-Af-izg" secondAttribute="leading" id="unF-YA-6gm"/>
+                            <constraint firstItem="T6m-Vf-DkS" firstAttribute="top" secondItem="Zpq-XX-zbM" secondAttribute="top" id="yVE-Ck-tCw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="brA-g0-04z"/>
+                    <connections>
+                        <outlet property="tableView" destination="mgs-Af-izg" id="MAV-fd-a9z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zzi-k8-cg7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2300" y="-274"/>
+            <point key="canvasLocation" x="2300" y="-274.64788732394368"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Xc0-K5-3a5">
@@ -206,11 +283,11 @@
             </objects>
             <point key="canvasLocation" x="-42" y="388"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="y6Q-6H-bsr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WaY-A2-a51" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="jVd-h5-dk1"/>
+                    <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" id="jVd-h5-dk1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="GlM-dp-iSD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
@@ -225,11 +302,11 @@
             </objects>
             <point key="canvasLocation" x="155" y="-663"/>
         </scene>
-        <!--Favorite-->
+        <!--Favorites-->
         <scene sceneID="ksT-aX-clO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="R8b-lC-40G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorite" image="star" catalog="system" selectedImage="star.fill" id="Jxv-fV-h5r"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" selectedImage="star.fill" id="Jxv-fV-h5r"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ktC-ZG-zzr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
@@ -399,6 +476,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="750" height="1624"/>
+        <image name="firebase_28dp.png" width="56" height="56"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="newsmic" width="512" height="512"/>
         <image name="star" catalog="system" width="128" height="116"/>
