@@ -7,8 +7,11 @@
 
 import UIKit
 import SafariServices
+import Firebase
 
 class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UISearchBarDelegate{
+    
+    let db = Firestore.firestore()
         
     
     private let tableView : UITableView = {
@@ -104,6 +107,23 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         let addAction = UIContextualAction(style: .normal, title: "Add Favorites") {(contextualAction , view , boolValue) in
             
             print("\(self.articles[indexPath.row]) tıklandı")
+            
+            let articlesIndex = self.articles[indexPath.row]
+            
+         let fireStoreNewsData  = ["title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage!, "Date":FieldValue.serverTimestamp()]
+            
+            self.db.collection("News").addDocument(data: fireStoreNewsData , completion: { error in
+                
+                if error != nil {
+                    
+                    print(error?.localizedDescription)
+                } else {
+                    
+                }
+                
+            })
+            
+            
         }
                                            
             return UISwipeActionsConfiguration(actions: [addAction])
