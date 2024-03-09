@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignInVC: UIViewController {
 
@@ -38,6 +39,30 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func signIn(_ sender: Any) {
+        
+        if let email = emailText.text , let password = passwordText.text {
+            
+            Auth.auth().signIn(withEmail: email, password: password) { result , error in
+        
+                if let error = error {
+                    
+                    print(error.localizedDescription)
+                    
+                } else {
+                    
+                    self.performSegue(withIdentifier: "toTabBar", sender: nil)
+                    
+                }
+                
+                
+            }
+            
+        }
+        
+        
+        
+        
+        
         
     }
     

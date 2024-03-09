@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="614-do-jEH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="614-do-jEH">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,7 +57,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggl-Bo-Mn4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1066" y="-15"/>
+            <point key="canvasLocation" x="-2031" y="-55"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="bck-h3-4nr">
@@ -386,13 +386,17 @@
                     <connections>
                         <outlet property="emailText" destination="hr5-Cy-Njf" id="FKp-XJ-eVI"/>
                         <outlet property="passwordText" destination="of5-yL-Rs9" id="Omk-zq-bIO"/>
+                        <segue destination="XPl-ik-GmZ" kind="presentation" identifier="toTabBar" modalPresentationStyle="fullScreen" id="7Hs-Ee-wfu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Yy-HJ-ByQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966" y="387"/>
+            <point key="canvasLocation" x="-708" y="-1296"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7Hs-Ee-wfu"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="750" height="1624"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
