@@ -79,11 +79,14 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         cell.designView.layer.cornerRadius = 10.0
         cell.selectionStyle = .none
         
+        cell.newsImageView.layer.cornerRadius = 10.0
+        cell.newsImageView.layer.masksToBounds = true
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  270
+        return  250
     }
 }
 
