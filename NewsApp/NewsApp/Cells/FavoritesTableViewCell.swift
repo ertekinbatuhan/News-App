@@ -9,10 +9,6 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
 
-   
-    
-   
-   
     @IBOutlet weak var designView: UIView!
     @IBOutlet weak var newsImageView: UIImageView!
     

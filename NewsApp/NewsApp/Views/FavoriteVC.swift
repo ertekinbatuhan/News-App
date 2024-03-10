@@ -8,13 +8,13 @@
 import UIKit
 import Firebase
 
+
 class FavoriteVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     let db = Firestore.firestore()
     
-    var newsTitleArray = [String]()
-    var newsUrlImageArray = [String]()
+    var newsItems = [FavoriteNews]()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,42 +32,49 @@ class FavoriteVC: UIViewController {
                 return
             } else {
                 
-                self.newsTitleArray.removeAll()
-                self.newsUrlImageArray.removeAll() // Mevcut veriyi temizle
+                self.newsItems.removeAll() 
 
                 for document in snapshots!.documents {
-                    if let newsTitle = document.get("title") as? String {
-                        self.newsTitleArray.append(newsTitle)
-                    
-                    }
-                    
-                    if let newsUrl = document.get("urlToImage") as? String {
-                        self.newsUrlImageArray.append(newsUrl)
-                        
-                        print(self.newsUrlImageArray)
+                    if let newsTitle = document.get("title") as? String,
+                       let newsUrl = document.get("urlToImage") as? String {
+                        let newsItem = FavoriteNews(title: newsTitle, imageUrl: newsUrl)
+                        self.newsItems.append(newsItem)
                     }
                 }
             }
 
             self.tableView.reloadData()
         }
-
-        }
     }
+}
 
-extension FavoriteVC : UITableViewDelegate , UITableViewDataSource {
+extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsTitleArray.count
+        return newsItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as! FavoritesTableViewCell
         
+        let newsItem = newsItems[indexPath.row]
+        cell.newsLabel.text = newsItem.title
         
-        cell.newsLabel.text = newsTitleArray[indexPath.row]
-        cell.newsImageView.image = UIImage(named: "news")
-        
-        
+        if let url = URL(string: newsItem.imageUrl) {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    print("Error loading image: \(error)")
+                    return
+                }
+
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.newsImageView.image = image
+                    }
+                }
+            }
+            task.resume()
+        }
+
         cell.backgroundColor = UIColor(white: 0.95, alpha: 1)
         cell.designView.layer.cornerRadius = 10.0
         cell.selectionStyle = .none
@@ -75,10 +82,8 @@ extension FavoriteVC : UITableViewDelegate , UITableViewDataSource {
         return cell
     }
     
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    
 }
+
