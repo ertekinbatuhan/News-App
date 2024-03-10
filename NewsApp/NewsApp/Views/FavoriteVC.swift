@@ -11,8 +11,11 @@ import Firebase
 
 class FavoriteVC: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     let db = Firestore.firestore()
+    var isSearching = false
+    var searchArray = [FavoriteNews]()
     
     var newsItems = [FavoriteNews]()
    
@@ -24,6 +27,7 @@ class FavoriteVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        searchBar.delegate = self
         
         
         db.collection("News").addSnapshotListener { snapshots, error in
@@ -48,9 +52,34 @@ class FavoriteVC: UIViewController {
     }
 }
 
+
+extension FavoriteVC : UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
+        if searchText == "" {
+            isSearching = false
+            
+        } else {
+            isSearching = true
+            searchArray = newsItems.filter({$0.title.lowercased().contains(searchText.lowercased())})
+        }
+        self.tableView.reloadData()
+    }
+    
+}
+
 extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsItems.count
+       
+        if isSearching {
+            
+            return  searchArray.count
+            
+        } else {
+            return newsItems.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,7 +94,7 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
                     print("Error loading image: \(error)")
                     return
                 }
-
+                
                 if let data = data, let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         cell.newsImageView.image = image
@@ -74,6 +103,46 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
             }
             task.resume()
         }
+        
+        if isSearching {
+            let newsItem = searchArray[indexPath.row]
+            cell.newsLabel.text = newsItem.title
+            
+            if let url = URL(string: newsItem.imageUrl) {
+                let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if let error = error {
+                        print("Error loading image: \(error)")
+                        return
+                    }
+                    
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            cell.newsImageView.image = image
+                        }
+                    }
+                }
+                task.resume()
+            }
+        } else {
+            let newsItem = newsItems[indexPath.row]
+            cell.newsLabel.text = newsItem.title
+            
+            if let url = URL(string: newsItem.imageUrl) {
+                let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if let error = error {
+                        print("Error loading image: \(error)")
+                        return
+                    }
+                    
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            cell.newsImageView.image = image
+                        }
+                    }
+                }
+                task.resume()
+            }
+        }
 
         cell.backgroundColor = UIColor(white: 0.95, alpha: 1)
         cell.designView.layer.cornerRadius = 10.0
@@ -81,12 +150,12 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.newsImageView.layer.cornerRadius = 10.0
         cell.newsImageView.layer.masksToBounds = true
-
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return  250
     }
+    
 }
-
