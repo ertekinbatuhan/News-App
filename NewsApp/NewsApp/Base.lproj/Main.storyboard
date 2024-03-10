@@ -32,15 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="T6m-Vf-DkS">
-                                <rect key="frame" x="0.0" y="96" width="393" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ZeQ-ZP-wVB" id="Ovr-mP-tP8"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mgs-Af-izg">
-                                <rect key="frame" x="0.0" y="152" width="393" height="602"/>
+                                <rect key="frame" x="0.0" y="144" width="393" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" rowHeight="301" id="YTD-Ty-6b6" customClass="FavoritesTableViewCell" customModule="NewsApp" customModuleProvider="target">
@@ -93,6 +86,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search " translatesAutoresizingMaskIntoConstraints="NO" id="T6m-Vf-DkS">
+                                <rect key="frame" x="0.0" y="88" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZeQ-ZP-wVB" id="Ovr-mP-tP8"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zpq-XX-zbM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -103,7 +103,7 @@
                             <constraint firstItem="mgs-Af-izg" firstAttribute="top" secondItem="T6m-Vf-DkS" secondAttribute="bottom" id="sMg-4T-A8F"/>
                             <constraint firstItem="T6m-Vf-DkS" firstAttribute="leading" secondItem="9QS-R1-EyR" secondAttribute="leading" id="wyF-Zg-UqZ"/>
                             <constraint firstAttribute="trailing" secondItem="T6m-Vf-DkS" secondAttribute="trailing" id="xYq-xU-q0C"/>
-                            <constraint firstItem="T6m-Vf-DkS" firstAttribute="top" secondItem="Zpq-XX-zbM" secondAttribute="top" constant="52" id="yVe-iJ-H2N"/>
+                            <constraint firstItem="T6m-Vf-DkS" firstAttribute="top" secondItem="Zpq-XX-zbM" secondAttribute="top" constant="-8" id="yVe-iJ-H2N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="brA-g0-04z"/>
@@ -306,8 +306,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="R8b-lC-40G" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" selectedImage="star.fill" id="Jxv-fV-h5r"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ktC-ZG-zzr">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ktC-ZG-zzr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
