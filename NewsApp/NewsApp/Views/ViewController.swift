@@ -110,13 +110,13 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             
             let articlesIndex = self.articles[indexPath.row]
             
-         let fireStoreNewsData  = ["title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage!, "Date":FieldValue.serverTimestamp()]
+            let fireStoreNewsData  = ["source" : articlesIndex.source.name,"title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage!, "Date":FieldValue.serverTimestamp()]
             
             self.db.collection("News").addDocument(data: fireStoreNewsData , completion: { error in
                 
                 if error != nil {
                     
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription ?? "test")
                 } else {
                     
                 }
