@@ -32,7 +32,7 @@ class FavoriteVC: UIViewController {
                 return
             } else {
                 
-                self.newsItems.removeAll() 
+                self.newsItems.removeAll()
 
                 for document in snapshots!.documents {
                     if let newsTitle = document.get("title") as? String,
@@ -83,7 +83,7 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return  270
     }
 }
 
