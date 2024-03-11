@@ -22,14 +22,13 @@ class FavoriteVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-       title = "Favorite News"
+        title = "Favorite News"
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         searchBar.delegate = self
-        
-        
+      
         db.collection("News").addSnapshotListener { snapshots, error in
             if let error = error {
                 print(error.localizedDescription)
@@ -51,7 +50,6 @@ class FavoriteVC: UIViewController {
         }
     }
 }
-
 
 extension FavoriteVC : UISearchBarDelegate {
     
@@ -82,6 +80,55 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete") { [weak self] (contextualAction, view, boolValue) in
+            guard let self = self else { return }
+
+            let selectedNews = self.isSearching ? self.searchArray[indexPath.row] : self.newsItems[indexPath.row]
+            self.deleteNewsFromFirestore(newsItem: selectedNews)
+
+            if self.isSearching {
+                self.searchArray.remove(at: indexPath.row)
+            } else {
+                self.newsItems.remove(at: indexPath.row)
+            }
+
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+
+        deleteAction.backgroundColor = .red
+
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+
+    func deleteNewsFromFirestore(newsItem: FavoriteNews) {
+       
+        let newsCollection = db.collection("News")
+        let query = newsCollection.whereField("title", isEqualTo: newsItem.title)
+
+        query.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+                return
+            }
+
+            guard let documents = snapshot?.documents else {
+                print("No documents found")
+                return
+            }
+
+            for document in documents {
+                newsCollection.document(document.documentID).delete { error in
+                    if let error = error {
+                        print("Error deleting document: \(error)")
+                    } else {
+                        print("Document successfully deleted")
+                    }
+                }
+            }
+        }
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as! FavoritesTableViewCell
         

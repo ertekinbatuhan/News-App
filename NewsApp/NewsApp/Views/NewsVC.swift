@@ -9,7 +9,7 @@ import UIKit
 import SafariServices
 import Firebase
 
-class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UISearchBarDelegate{
+class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , UISearchBarDelegate{
     
     let db = Firestore.firestore()
         
