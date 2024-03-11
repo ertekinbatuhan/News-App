@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SafariServices
 
 
 class FavoriteVC: UIViewController {
@@ -39,10 +40,12 @@ class FavoriteVC: UIViewController {
 
                 for document in snapshots!.documents {
                     if let newsTitle = document.get("title") as? String,
+                       let newsToUrl = document.get("url") as? String ,
                        let newsUrl = document.get("urlToImage") as? String {
-                        let newsItem = FavoriteNews(title: newsTitle, imageUrl: newsUrl)
+                        let newsItem = FavoriteNews(title: newsTitle, imageUrl: newsUrl, url: newsToUrl)
                         self.newsItems.append(newsItem)
                     }
+                  
                 }
             }
 
@@ -78,6 +81,21 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             return newsItems.count
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let news = newsItems[indexPath.row]
+        
+        
+        guard let url =  URL(string : news.url ?? "") else {
+            return
+        }
+        
+        let viewController  = SFSafariViewController(url: url)
+        present(viewController,animated : true )
+        
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
