@@ -324,6 +324,22 @@
             </objects>
             <point key="canvasLocation" x="1079" y="-15"/>
         </scene>
+        <!--SettingsVC-->
+        <scene sceneID="8XH-Ld-WX6">
+            <objects>
+                <viewController id="LQc-KV-Klg" customClass="SettingsVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XRc-nx-RIH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="FbG-gH-RIt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZwI-H5-Fjr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YSE-wX-YcQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3652.6717557251909" y="473.94366197183103"/>
+        </scene>
         <!--Sign InVC-->
         <scene sceneID="cvq-4q-k3w">
             <objects>
@@ -469,6 +485,24 @@
             </objects>
             <point key="canvasLocation" x="-708" y="-1296"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5D6-0O-Yde">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XQF-LW-ANb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vbe-qq-mME">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LQc-KV-Klg" kind="relationship" relationship="rootViewController" id="KWe-qd-WBv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qX9-T5-ouw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2725.9541984732823" y="473.94366197183103"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="7Hs-Ee-wfu"/>
@@ -484,7 +518,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

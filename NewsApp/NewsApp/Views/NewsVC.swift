@@ -77,8 +77,6 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         
         cell.configure(with: viewModels[indexPath.row])
         
-       
-        
         return cell
     }
     
@@ -110,7 +108,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
             
             let articlesIndex = self.articles[indexPath.row]
             
-            let fireStoreNewsData  = ["source" : articlesIndex.source.name,"title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage!, "Date":FieldValue.serverTimestamp()]
+            let fireStoreNewsData  = ["source" : articlesIndex.source.name,"title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage ?? "null", "Date":FieldValue.serverTimestamp()]
             
             self.db.collection("News").addDocument(data: fireStoreNewsData , completion: { error in
                 
