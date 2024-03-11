@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZeQ-ZP-wVB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="614-do-jEH">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -95,6 +95,7 @@
                                             <outlet property="designView" destination="pDk-AV-K04" id="DrV-jC-8KK"/>
                                             <outlet property="newsImageView" destination="8Hk-n1-N2V" id="I0J-83-JXa"/>
                                             <outlet property="newsLabel" destination="a3t-JR-zE0" id="HDA-uJ-73e"/>
+                                            <outlet property="settingsBackgroundView" destination="2Me-ug-f5u" id="D4D-oO-m7S"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -346,22 +347,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5O-oy-ClK">
-                                <rect key="frame" x="175" y="148" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="e4h-CG-Gb0">
+                                <rect key="frame" x="0.0" y="145" width="393" height="31"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="K7g-bi-Ag8">
+                                        <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="31"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvf-Bp-cPD">
+                                        <rect key="frame" x="154.66666666666666" y="0.0" width="83.666666666666657" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MC8-Fu-Q4i">
+                                        <rect key="frame" x="309.33333333333331" y="0.0" width="85.666666666666686" height="31"/>
+                                    </switch>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FbG-gH-RIt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e4h-CG-Gb0" firstAttribute="top" secondItem="FbG-gH-RIt" secondAttribute="top" constant="49" id="0rE-fq-RXv"/>
+                            <constraint firstItem="e4h-CG-Gb0" firstAttribute="centerX" secondItem="XRc-nx-RIH" secondAttribute="centerX" id="CdR-GB-22Z"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="ZwI-H5-Fjr"/>
+                    <connections>
+                        <outlet property="darkModeSwitch" destination="MC8-Fu-Q4i" id="9UW-i6-SrQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSE-wX-YcQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="1177"/>
+            <point key="canvasLocation" x="606.87022900763361" y="1176.7605633802818"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="cvq-4q-k3w">
@@ -530,7 +548,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mBy-Aj-7K8"/>
         <segue reference="7Hs-Ee-wfu"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -540,6 +557,7 @@
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="newsmic" width="512" height="512"/>
+        <image name="setting" width="512" height="512"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">

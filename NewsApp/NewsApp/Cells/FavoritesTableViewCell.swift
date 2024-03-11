@@ -12,6 +12,10 @@ class FavoritesTableViewCell: UITableViewCell {
     @IBOutlet weak var designView: UIView!
     @IBOutlet weak var newsImageView: UIImageView!
     
+   
+   
+    @IBOutlet weak var settingsBackgroundView: UIView!
+    
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var newsLabel: UILabel!

@@ -32,6 +32,8 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         tableView.delegate = self
         tableView.dataSource = self
         
+        ThemeManager.shared.updateTheme()
+        
         createSearchBar()
         
         APICaller.shared.getTopStories{ [weak self ]result in

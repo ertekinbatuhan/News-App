@@ -11,7 +11,7 @@ import SafariServices
 
 
 class FavoriteVC: UIViewController {
-    
+        
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     let db = Firestore.firestore()
@@ -24,12 +24,13 @@ class FavoriteVC: UIViewController {
         super.viewDidLoad()
        
         
-        
+        ThemeManager.shared.updateTheme()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         searchBar.delegate = self
-      
+        
+        
         db.collection("News").addSnapshotListener { snapshots, error in
             if let error = error {
                 print(error.localizedDescription)
@@ -154,7 +155,9 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         let newsItem = newsItems[indexPath.row]
         cell.newsLabel.text = newsItem.title
         cell.descriptionLabel.text = newsItem.description
-        
+        ThemeManager.shared.updateContentViewBackgroundColor(cell.settingsBackgroundView)
+       
+       
         if let url = URL(string: newsItem.imageUrl) {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if let error = error {
@@ -219,8 +222,7 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.newsImageView.layer.cornerRadius = 10.0
         cell.newsImageView.layer.masksToBounds = true
-       
-        
+    
         return cell
     }
     
