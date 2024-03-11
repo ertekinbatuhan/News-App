@@ -12,5 +12,6 @@ struct FavoriteNews {
     let title: String
     let imageUrl: String
     let url : String?
+    let description : String?
 }
 

@@ -41,8 +41,9 @@ class FavoriteVC: UIViewController {
                 for document in snapshots!.documents {
                     if let newsTitle = document.get("title") as? String,
                        let newsToUrl = document.get("url") as? String ,
+                       let newsDescription = document.get("description") as? String,
                        let newsUrl = document.get("urlToImage") as? String {
-                        let newsItem = FavoriteNews(title: newsTitle, imageUrl: newsUrl, url: newsToUrl)
+                        let newsItem = FavoriteNews(title: newsTitle, imageUrl: newsUrl, url: newsToUrl, description: newsDescription)
                         self.newsItems.append(newsItem)
                     }
                   
@@ -152,6 +153,7 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         
         let newsItem = newsItems[indexPath.row]
         cell.newsLabel.text = newsItem.title
+        cell.descriptionLabel.text = newsItem.description
         
         if let url = URL(string: newsItem.imageUrl) {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -172,6 +174,7 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         if isSearching {
             let newsItem = searchArray[indexPath.row]
             cell.newsLabel.text = newsItem.title
+            cell.descriptionLabel.text = newsItem.description
             
             if let url = URL(string: newsItem.imageUrl) {
                 let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -191,6 +194,7 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             let newsItem = newsItems[indexPath.row]
             cell.newsLabel.text = newsItem.title
+            cell.descriptionLabel.text = newsItem.description
             
             if let url = URL(string: newsItem.imageUrl) {
                 let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -215,12 +219,13 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.newsImageView.layer.cornerRadius = 10.0
         cell.newsImageView.layer.masksToBounds = true
+       
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  250
+        return  300
     }
     
 }
