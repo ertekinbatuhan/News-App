@@ -9,11 +9,11 @@ import Foundation
 
 
 struct APIResponse : Codable {
-    let articles : [Article]
+    let articles : [News]
     
 }
 
-struct Article : Codable{
+struct News : Codable{
     let source : Source
     let title : String
     let description : String?

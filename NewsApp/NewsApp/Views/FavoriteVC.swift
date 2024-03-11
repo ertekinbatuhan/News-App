@@ -23,7 +23,7 @@ class FavoriteVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        title = "Favorite News"
+        
         
         tableView.delegate = self
         tableView.dataSource = self

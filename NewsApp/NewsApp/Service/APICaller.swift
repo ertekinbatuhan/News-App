@@ -24,7 +24,7 @@ final class APICaller {
     }
     
     
-    public func getTopStories(completion: @escaping(Result<[Article] , Error>) -> Void ) {
+    public func getTopStories(completion: @escaping(Result<[News] , Error>) -> Void ) {
         guard let url = Constants.topHeadlinesURL else {
             return
         }
@@ -51,7 +51,7 @@ final class APICaller {
     }
     
     
-    public func search(with query : String , completion: @escaping(Result<[Article] , Error>) -> Void ) {
+    public func search(with query : String , completion: @escaping(Result<[News] , Error>) -> Void ) {
         
         guard !query.trimmingCharacters(in: .whitespaces).isEmpty else {
             return

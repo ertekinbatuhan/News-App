@@ -23,7 +23,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
     private let searchViewController = UISearchController(searchResultsController: nil)
     
     private var viewModels = [NewsTableViewCellViewModel]()
-    private var articles = [Article]()
+    private var articles = [News]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,6 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        title = "News"
         
         createSearchBar()
         

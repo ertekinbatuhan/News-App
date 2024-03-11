@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NewsVC-->
+        <!--News-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="NewsVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1sK-L0-G1L"/>
+                    <navigationItem key="navigationItem" title="News" id="1sK-L0-G1L"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,6 +129,7 @@
                     <connections>
                         <segue destination="WaY-A2-a51" kind="relationship" relationship="viewControllers" id="HPU-X9-fcS"/>
                         <segue destination="R8b-lC-40G" kind="relationship" relationship="viewControllers" id="MTA-LD-MgK"/>
+                        <segue destination="XQF-LW-ANb" kind="relationship" relationship="viewControllers" id="bKq-Fj-pp8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggl-Bo-Mn4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -282,11 +283,11 @@
             </objects>
             <point key="canvasLocation" x="-42" y="388"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home-->
         <scene sceneID="y6Q-6H-bsr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WaY-A2-a51" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" id="jVd-h5-dk1"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="jVd-h5-dk1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="GlM-dp-iSD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
@@ -324,21 +325,30 @@
             </objects>
             <point key="canvasLocation" x="1079" y="-15"/>
         </scene>
-        <!--SettingsVC-->
+        <!--Settings-->
         <scene sceneID="8XH-Ld-WX6">
             <objects>
                 <viewController id="LQc-KV-Klg" customClass="SettingsVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XRc-nx-RIH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5O-oy-ClK">
+                                <rect key="frame" x="175" y="148" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FbG-gH-RIt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZwI-H5-Fjr"/>
+                    <navigationItem key="navigationItem" title="Settings" id="ZwI-H5-Fjr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSE-wX-YcQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3652.6717557251909" y="473.94366197183103"/>
+            <point key="canvasLocation" x="607" y="1177"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="cvq-4q-k3w">
@@ -485,13 +495,15 @@
             </objects>
             <point key="canvasLocation" x="-708" y="-1296"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings-->
         <scene sceneID="5D6-0O-Yde">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XQF-LW-ANb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="uyY-P3-ne6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vbe-qq-mME">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationItem key="navigationItem" id="tNU-fk-wVR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="vbe-qq-mME">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -501,7 +513,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qX9-T5-ouw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2725.9541984732823" y="473.94366197183103"/>
+            <point key="canvasLocation" x="-934" y="643"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -510,6 +522,8 @@
     <resources>
         <image name="background" width="750" height="1624"/>
         <image name="firebase_28dp.png" width="56" height="56"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="newsmic" width="512" height="512"/>
         <image name="star" catalog="system" width="128" height="116"/>
