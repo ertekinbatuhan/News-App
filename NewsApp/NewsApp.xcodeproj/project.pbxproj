@@ -19,7 +19,6 @@
 		C0301DB82B8D048100F49706 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0301DB72B8D048100F49706 /* NewsTableViewCell.swift */; };
 		C05CE74D2B9BAA3C00145DB7 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CE74C2B9BAA3C00145DB7 /* SignInVC.swift */; };
 		C086C6302B9E1E910038D9A7 /* FavoriteNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086C62F2B9E1E910038D9A7 /* FavoriteNews.swift */; };
-		C09318522B92337C00FB6661 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09318512B92337C00FB6661 /* News.swift */; };
 		C0AFEA7A2B9CC32500937F94 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AFEA792B9CC32500937F94 /* FavoritesTableViewCell.swift */; };
 		C0C7ECCE2B9C4AFA0098C4A9 /* newspaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C7ECCD2B9C4AFA0098C4A9 /* newspaper.png */; };
 		C0C7ECD02B9C50110098C4A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0C7ECCF2B9C50110098C4A9 /* GoogleService-Info.plist */; };
@@ -30,6 +29,7 @@
 		C0C7ECE22B9C547A0098C4A9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C0C7ECE12B9C547A0098C4A9 /* FirebaseStorage */; };
 		C0CA72732B9F1308006580AD /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA72722B9F1308006580AD /* SettingsVC.swift */; };
 		C0CA9B772B9F3418001D033B /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA9B762B9F3418001D033B /* ThemeManager.swift */; };
+		C0FEEFD12B9F784700A34375 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FEEFD02B9F784700A34375 /* News.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,12 +47,12 @@
 		C0301DB72B8D048100F49706 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		C05CE74C2B9BAA3C00145DB7 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		C086C62F2B9E1E910038D9A7 /* FavoriteNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNews.swift; sourceTree = "<group>"; };
-		C09318512B92337C00FB6661 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		C0AFEA792B9CC32500937F94 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		C0C7ECCD2B9C4AFA0098C4A9 /* newspaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newspaper.png; sourceTree = "<group>"; };
 		C0C7ECCF2B9C50110098C4A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0CA72722B9F1308006580AD /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C0CA9B762B9F3418001D033B /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		C0FEEFD02B9F784700A34375 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +140,8 @@
 		C09318532B9233F800FB6661 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C09318512B92337C00FB6661 /* News.swift */,
 				C086C62F2B9E1E910038D9A7 /* FavoriteNews.swift */,
+				C0FEEFD02B9F784700A34375 /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,10 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C09318522B92337C00FB6661 /* News.swift in Sources */,
 				C05CE74D2B9BAA3C00145DB7 /* SignInVC.swift in Sources */,
 				C0301DA62B8CFC1B00F49706 /* NewsVC.swift in Sources */,
 				C0099DB72B9B9EA200DE67B8 /* SignUpVC.swift in Sources */,
+				C0FEEFD12B9F784700A34375 /* News.swift in Sources */,
 				C0301DA22B8CFC1B00F49706 /* AppDelegate.swift in Sources */,
 				C0CA72732B9F1308006580AD /* SettingsVC.swift in Sources */,
 				C0CA9B772B9F3418001D033B /* ThemeManager.swift in Sources */,

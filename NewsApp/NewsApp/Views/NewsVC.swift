@@ -13,7 +13,6 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
     
     let db = Firestore.firestore()
         
-    
     private let tableView : UITableView = {
         let table = UITableView()
         table.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
@@ -23,11 +22,11 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
     private let searchViewController = UISearchController(searchResultsController: nil)
     
     private var viewModels = [NewsTableViewCellViewModel]()
-    private var articles = [News]()
+    private var news = [News]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+      
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -39,7 +38,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         APICaller.shared.getTopStories{ [weak self ]result in
             switch result {
             case .success(let articles):
-                self?.articles = articles
+                self?.news = articles
                 self?.viewModels = articles.compactMap({
                     NewsTableViewCellViewModel(title: $0.title, subTitle: $0.description ?? "", imageURL: URL(string: $0.urlToImage ?? ""))
                 })
@@ -84,7 +83,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let article = articles[indexPath.row]
+        let article = news[indexPath.row]
         
         
         guard let url =  URL(string : article.url ?? "") else {
@@ -105,9 +104,9 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         
         let addAction = UIContextualAction(style: .normal, title: "Add Favorites") {(contextualAction , view , boolValue) in
             
-            print("\(self.articles[indexPath.row]) tıklandı")
+            print("\(self.news[indexPath.row]) tıklandı")
             
-            let articlesIndex = self.articles[indexPath.row]
+            let articlesIndex = self.news[indexPath.row]
             
             let fireStoreNewsData  = ["source" : articlesIndex.source.name,"title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage ?? "null", "Date":FieldValue.serverTimestamp()]
             
@@ -121,14 +120,10 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
                 }
                 
             })
-            
-            
         }
-                                           
+                                    
             return UISwipeActionsConfiguration(actions: [addAction])
     }
-    
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text , !text.isEmpty else {
@@ -139,11 +134,10 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
             
             switch result {
             case .success(let articles):
-                self?.articles = articles
+                self?.news = articles
                 self?.viewModels = articles.compactMap({
                     NewsTableViewCellViewModel(title: $0.title, subTitle: $0.description ?? "", imageURL: URL(string: $0.urlToImage ?? ""))
                 })
-                
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
@@ -154,12 +148,8 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
                 print(error)
                 
             }
-            
-            
         }
-        print(text)
     }
-
 
 }
 

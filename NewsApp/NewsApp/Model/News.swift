@@ -2,10 +2,11 @@
 //  News.swift
 //  NewsApp
 //
-//  Created by Batuhan Berk Ertekin on 1.03.2024.
+//  Created by Batuhan Berk Ertekin on 11.03.2024.
 //
 
 import Foundation
+import UIKit
 
 
 struct APIResponse : Codable {
@@ -27,4 +28,3 @@ struct  Source : Codable {
     let name : String
     
 }
-

@@ -11,12 +11,7 @@ class FavoritesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var designView: UIView!
     @IBOutlet weak var newsImageView: UIImageView!
-    
-   
-   
     @IBOutlet weak var settingsBackgroundView: UIView!
-    
-    
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var newsLabel: UILabel!
     override func awakeFromNib() {
@@ -26,8 +21,6 @@ class FavoritesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
-
 }

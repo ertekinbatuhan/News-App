@@ -53,19 +53,7 @@ class SignInVC: UIViewController {
                     self.performSegue(withIdentifier: "toTabBar", sender: nil)
                     
                 }
-                
-                
             }
-            
         }
-        
-        
-        
-        
-        
-        
     }
-    
-    
-    
 }

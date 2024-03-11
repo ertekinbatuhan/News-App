@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="1424" y="-902"/>
         </scene>
-        <!--FavoriteVC-->
+        <!--Favorites-->
         <scene sceneID="lQE-tn-wAO">
             <objects>
                 <viewController id="ZeQ-ZP-wVB" customClass="FavoriteVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
                             <constraint firstItem="mgs-Af-izg" firstAttribute="bottom" secondItem="Zpq-XX-zbM" secondAttribute="bottom" id="zip-9i-qtY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="brA-g0-04z"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="brA-g0-04z"/>
                     <connections>
                         <outlet property="searchBar" destination="T6m-Vf-DkS" id="GTx-ld-74y"/>
                         <outlet property="tableView" destination="mgs-Af-izg" id="MAV-fd-a9z"/>
@@ -133,7 +133,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Xc0-K5-3a5">
             <objects>
-                <tabBarController id="XPl-ik-GmZ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="XPl-ik-GmZ" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ddt-Ci-9FR"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xIb-0k-ijq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
@@ -295,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hcw-CW-Isg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42" y="388"/>
+            <point key="canvasLocation" x="-39" y="273"/>
         </scene>
         <!--Home-->
         <scene sceneID="y6Q-6H-bsr">
@@ -372,14 +372,21 @@
                             <constraint firstItem="e4h-CG-Gb0" firstAttribute="centerX" secondItem="XRc-nx-RIH" secondAttribute="centerX" id="CdR-GB-22Z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="ZwI-H5-Fjr"/>
+                    <navigationItem key="navigationItem" title="Settings" id="e8L-57-iFm">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="dRJ-iw-Vzi">
+                            <connections>
+                                <action selector="logOutButton:" destination="LQc-KV-Klg" id="CvB-pw-cst"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="darkModeSwitch" destination="MC8-Fu-Q4i" id="9UW-i6-SrQ"/>
+                        <segue destination="614-do-jEH" kind="presentation" identifier="toSignInVC" modalPresentationStyle="fullScreen" id="Vw0-5m-eyw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSE-wX-YcQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606.87022900763361" y="1176.7605633802818"/>
+            <point key="canvasLocation" x="332" y="-1408"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="cvq-4q-k3w">
@@ -532,7 +539,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XQF-LW-ANb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="uyY-P3-ne6"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="tNU-fk-wVR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="vbe-qq-mME">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -548,7 +554,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Hs-Ee-wfu"/>
+        <segue reference="Vw0-5m-eyw"/>
+        <segue reference="e3X-pK-Ykw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="750" height="1624"/>
