@@ -9,7 +9,6 @@ import UIKit
 import Firebase
 import SafariServices
 
-
 class FavoriteVC: UIViewController {
         
     @IBOutlet weak var searchBar: UISearchBar!
@@ -19,40 +18,24 @@ class FavoriteVC: UIViewController {
     var searchArray = [FavoriteNews]()
     
     var newsItems = [FavoriteNews]()
+    var favoriteViewModel = FavoriteVCViewModel()
    
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
         ThemeManager.shared.updateTheme()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         searchBar.delegate = self
         
-        
-        db.collection("News").addSnapshotListener { snapshots, error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            } else {
-                
-                self.newsItems.removeAll()
-
-                for document in snapshots!.documents {
-                    if let newsTitle = document.get("title") as? String,
-                       let newsToUrl = document.get("url") as? String ,
-                       let newsDescription = document.get("description") as? String,
-                       let newsUrl = document.get("urlToImage") as? String {
-                        let newsItem = FavoriteNews(title: newsTitle, imageUrl: newsUrl, url: newsToUrl, description: newsDescription)
-                        self.newsItems.append(newsItem)
-                    }
-                  
-                }
+        _ = favoriteViewModel.newsItemsArray.subscribe(onNext: { data in
+            
+            self.newsItems = data
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
-
-            self.tableView.reloadData()
-        }
+        })
     }
 }
 
