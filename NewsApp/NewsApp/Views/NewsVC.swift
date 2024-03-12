@@ -23,6 +23,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
     
     private var viewModels = [NewsTableViewCellViewModel]()
     private var news = [News]()
+    private var newsDaoRepository = NewsDaoRepository()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +77,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         }
         
         cell.configure(with: viewModels[indexPath.row])
-        
+    
         return cell
     }
     
@@ -99,16 +100,17 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         return 150
     }
     
-    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let addAction = UIContextualAction(style: .normal, title: "Add Favorites") {(contextualAction , view , boolValue) in
             
-            print("\(self.news[indexPath.row]) tıklandı")
+          //  print("\(self.news[indexPath.row]) tıklandı")
             
             let articlesIndex = self.news[indexPath.row]
             
-            let fireStoreNewsData  = ["source" : articlesIndex.source.name,"title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage ?? "null", "Date":FieldValue.serverTimestamp()]
+            self.newsDaoRepository.addNewsToFirebase(articlesIndex: articlesIndex)
+        
+         /*   let fireStoreNewsData  = ["source" : articlesIndex.source.name,"title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage ?? "null", "Date":FieldValue.serverTimestamp()]
             
             self.db.collection("News").addDocument(data: fireStoreNewsData , completion: { error in
                 
@@ -120,6 +122,8 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
                 }
                 
             })
+          */
+           
         }
                                     
             return UISwipeActionsConfiguration(actions: [addAction])

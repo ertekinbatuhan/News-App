@@ -22,7 +22,6 @@ class FavoriteVCViewModel {
     }
     
     func loadFavoriteNews() {
-        
         favoriteDaoRepository.loadNews()
     }
 }
