@@ -11,5 +11,16 @@ import RxSwift
 
 class NewsViewModel {
     
+    var newsDaoRepository = NewsDaoRepository()
+    
+    
+    
+    func addNewsToFirebase(articlesIndex : News) {
+        
+    newsDaoRepository.addNewsToFirebase(articlesIndex: articlesIndex)
+        
+    }
+    
+    
     
 }

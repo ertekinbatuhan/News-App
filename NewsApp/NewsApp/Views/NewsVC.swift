@@ -24,6 +24,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
     private var viewModels = [NewsTableViewCellViewModel]()
     private var news = [News]()
     private var newsDaoRepository = NewsDaoRepository()
+    private var newsViewModel = NewsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,8 +109,10 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
             
             let articlesIndex = self.news[indexPath.row]
             
-            self.newsDaoRepository.addNewsToFirebase(articlesIndex: articlesIndex)
-        
+            self.newsViewModel.addNewsToFirebase(articlesIndex: articlesIndex)
+            
+        //    self.newsDaoRepository.addNewsToFirebase(articlesIndex: articlesIndex)
+            
          /*   let fireStoreNewsData  = ["source" : articlesIndex.source.name,"title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage ?? "null", "Date":FieldValue.serverTimestamp()]
             
             self.db.collection("News").addDocument(data: fireStoreNewsData , completion: { error in
