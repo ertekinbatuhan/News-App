@@ -24,8 +24,6 @@ class SettingsVC: UIViewController {
             print("Failed to log out")
         }
         
-        
-        
     }
     @objc func darkModeSwitchChanged(_ sender: UISwitch) {
           

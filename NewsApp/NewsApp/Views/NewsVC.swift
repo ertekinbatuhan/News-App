@@ -132,28 +132,48 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
             return UISwipeActionsConfiguration(actions: [addAction])
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text , !text.isEmpty else {
-            return
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+           
+            loadTopStories()
         }
-        
-        APICaller.shared.search(with: text) { [weak self ] result in
-            
+    }
+
+    func loadTopStories() {
+        APICaller.shared.getTopStories { [weak self] result in
             switch result {
             case .success(let articles):
                 self?.news = articles
                 self?.viewModels = articles.compactMap({
                     NewsTableViewCellViewModel(title: $0.title, subTitle: $0.description ?? "", imageURL: URL(string: $0.urlToImage ?? ""))
                 })
-                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.isEmpty else {
+            return
+        }
+        
+        APICaller.shared.search(with: text) { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.news = articles
+                self?.viewModels = articles.compactMap({
+                    NewsTableViewCellViewModel(title: $0.title, subTitle: $0.description ?? "", imageURL: URL(string: $0.urlToImage ?? ""))
+                })
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                     self?.searchViewController.dismiss(animated: true)
                 }
-                
             case .failure(let error):
                 print(error)
-                
             }
         }
     }
