@@ -37,7 +37,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         
         createSearchBar()
         
-        APICaller.shared.getTopStories{ [weak self ]result in
+        APICaller.shared.getTopStories{ [weak self]  result in
             switch result {
             case .success(let articles):
                 self?.news = articles
