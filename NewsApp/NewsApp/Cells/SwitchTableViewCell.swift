@@ -84,7 +84,7 @@ class SwitchTableViewCell: UITableViewCell {
     }
     
     @objc func switchValueChanged(_ sender: UISwitch) {
-        // model'deki isOn durumunu güncelle
+      
         mySwitch.isOn = sender.isOn
         
         if sender.isOn {

@@ -23,7 +23,6 @@ struct SettingsSwitchOption {
     }
 }
 
-
 struct SettingsOption {
     
     let title : String
@@ -65,9 +64,6 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         tableView.dataSource = self
         tableView.frame = view.bounds
         
-       darkModeSwitch.isOn = ThemeManager.shared.isDarkModeEnabled
-    
-        darkModeSwitch.addTarget(self, action: #selector(darkModeSwitchChanged(_:)), for: .valueChanged)
     }
     
     func configure(){
@@ -75,21 +71,15 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         
         models.append(Section(title: "General", options: [
         
-            .switchCell(model:SettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "home"), iconBackgroundColor: .systemRed, handler: {
-                
-              
-                
-            }, isOn: false)),
+            .switchCell(model:SettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "home"), iconBackgroundColor: .darkGray, handler: {
             
-    
-
+            }, isOn: false)),
             
             ]))
         
+        models.append(Section(title: "General", options: [
             
-        models.append(Section(title: "Test", options: [
-            
-                .staticCell(model: SettingsOption(title: "Wifi", icon: UIImage(named: "house"), iconBackgroundColor: .link){
+            .staticCell(model: SettingsOption(title: "Wifi", icon:UIImage(named: "wifi"),iconBackgroundColor: .link){
                     
                 }),
             
@@ -104,21 +94,15 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
                 .staticCell(model: SettingsOption(title: "iCloud", icon: UIImage(named: "cloud"), iconBackgroundColor: .systemPink){
                     
                 }),
-        
         ]))
-        
-        
         
       
     }
     
-   
-    
+
     func numberOfSections(in tableView : UITableView) -> Int {
         return models.count
     }
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models[section].options.count
@@ -146,7 +130,6 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
             
         }
         
-      
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -169,7 +152,6 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         
     }
     
-    
     @IBAction func logOutButton(_ sender: Any) {
         
         do {
@@ -182,10 +164,7 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         }
         
     }
-    @objc func darkModeSwitchChanged(_ sender: UISwitch) {
-          
-            ThemeManager.shared.isDarkModeEnabled = sender.isOn
-        }    
+
 }
 
     
