@@ -11,7 +11,6 @@ class NewsSqlVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    
     var category : Category?
     var newsList = [NewsSQLite]()
     

@@ -79,7 +79,7 @@
                     <navigationItem key="navigationItem" title="Categories" id="Cbf-qQ-owW"/>
                     <connections>
                         <outlet property="collectionView" destination="ecG-77-LO0" id="I8U-Ta-dnd"/>
-                        <segue destination="O49-oB-iSb" kind="show" identifier="toTest" id="kQr-RK-5Cw"/>
+                        <segue destination="O49-oB-iSb" kind="show" identifier="toDetailNews" id="kQr-RK-5Cw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZ6-rb-2ec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,10 +9,8 @@ import UIKit
 
 class CategoryVC: UIViewController {
 
-    
     var categoryList = [Category]()
-    
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -26,8 +24,6 @@ class CategoryVC: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
       
-        
-        
         let design : UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
         let width = self.collectionView.frame.size.width
@@ -94,14 +90,12 @@ extension CategoryVC : UICollectionViewDelegate , UICollectionViewDataSource{
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 10.0
         
-      
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        self.performSegue(withIdentifier: "toTest", sender: indexPath.row)
+        self.performSegue(withIdentifier: "toDetailNews", sender: indexPath.row)
     }
         
 }
