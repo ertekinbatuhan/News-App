@@ -23,7 +23,7 @@ class SettingsTableViewCell: UITableViewCell {
        
         let imageView = UIImageView()
         imageView.tintColor = .white
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
         
     }()
@@ -52,14 +52,13 @@ class SettingsTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let size = contentView.frame.size.height - 12
+        let size: CGFloat = contentView.frame.size.height - 12
         iconContainer.frame = CGRect(x: 15, y: 6, width: size, height: size)
         
         let imageSize  : CGFloat = size/1.5
-        iconImageView.frame = CGRect(x: (size-imageSize)/2, y: 0, width: (size-imageSize)/2, height: imageSize)
-        iconImageView.center = iconContainer.center
-        
-        label.frame = CGRect(x: 25 + iconContainer.frame.size.width,
+        iconImageView.frame = CGRect(x: (size-imageSize)/2, y: (size-imageSize)/2, width: imageSize, height: imageSize)
+    
+        label.frame = CGRect(x: 20 + iconContainer.frame.size.width,
                              y: 0
                              , width: contentView.frame.size.width-20-iconContainer.frame.size.width
                              , height: contentView.frame.size.height)

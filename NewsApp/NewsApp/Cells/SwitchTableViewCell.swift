@@ -63,9 +63,8 @@ class SwitchTableViewCell: UITableViewCell {
         iconContainer.frame = CGRect(x: 15, y: 6, width: size, height: size)
         
         let imageSize  : CGFloat = size/1.5
-        iconImageView.frame = CGRect(x: (size-imageSize)/2, y: 0, width: (size-imageSize)/2, height: imageSize)
-        iconImageView.center = iconContainer.center
-        
+        iconImageView.frame = CGRect(x: (size-imageSize)/2, y: (size-imageSize)/2, width: imageSize, height: imageSize)
+    
         mySwitch.sizeToFit()
         mySwitch.frame = CGRect(x: contentView.frame.size.width - mySwitch.frame.size.width - 20, y: (contentView.frame.size.height - mySwitch.frame.size.height)/2, width: mySwitch.frame.size.width, height: mySwitch.frame.size.height)
         
