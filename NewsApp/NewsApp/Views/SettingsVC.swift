@@ -77,6 +77,17 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
             
             ]))
         
+        models.append(Section(title: "Favorites", options: [
+            
+            .staticCell(model: SettingsOption(title: "Favorites", icon:UIImage(systemName: "favorite"),iconBackgroundColor: .systemRed){
+                    
+               
+                self.performSegue(withIdentifier: "toFavorites", sender: nil)
+                }),
+            
+        ]))
+        
+        
         models.append(Section(title: "General", options: [
             
             .staticCell(model: SettingsOption(title: "Wifi", icon:UIImage(named: "wifi"),iconBackgroundColor: .link){
@@ -96,7 +107,6 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
                 }),
         ]))
         
-      
     }
     
 
