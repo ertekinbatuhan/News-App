@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 
-class FavoriteVCViewModel {
+class FavoriteViewModel {
     
     var newsItemsArray = BehaviorSubject<[FavoriteNews]>(value: [FavoriteNews]())
     var favoriteDaoRepository = FavoriteDaoRepository()

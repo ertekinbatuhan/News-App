@@ -10,15 +10,17 @@ import UIKit
 class CategoryVC: UIViewController {
 
     var categoryList = [Category]()
+    let  categoryViewModel = CategoryViewModel()
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       databaseCopy()
-        // Do any additional setup after loading the view.
+        categoryViewModel.databaseCopy()
         
+        //  databaseCopy()
+       
         categoryList = CategoryDao().allCategory()
         
         collectionView.dataSource = self
@@ -46,30 +48,6 @@ class CategoryVC: UIViewController {
        goToVC.category = categoryList[index!]
     }
     
-    
-    func databaseCopy(){
-        
-        let bundleWay = Bundle.main.path(forResource: "news", ofType: ".sqlite")
-        
-        let targetWay = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        
-        let fileManager = FileManager.default
-        
-        let copyLocation = URL(fileURLWithPath: targetWay).appendingPathComponent("news.sqlite")
-        
-        if fileManager.fileExists(atPath: copyLocation.path) {
-            print("the database already exists")
-        }else{
-            do {
-                
-                try fileManager.copyItem(atPath: bundleWay!, toPath: copyLocation.path)
-                
-            }catch{
-                print(error)
-            }
-        }
-    }
-   
 }
 
 extension CategoryVC : UICollectionViewDelegate , UICollectionViewDataSource{

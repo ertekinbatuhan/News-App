@@ -18,7 +18,7 @@ class FavoriteVC: UIViewController {
     var searchArray = [FavoriteNews]()
     
     var newsItems = [FavoriteNews]()
-    var favoriteViewModel = FavoriteVCViewModel()
+    var favoriteViewModel = FavoriteViewModel()
    
     override func viewDidLoad() {
         super.viewDidLoad()
