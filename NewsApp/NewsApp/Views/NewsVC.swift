@@ -78,6 +78,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         }
         
         cell.configure(with: viewModels[indexPath.row])
+        
     
         return cell
     }

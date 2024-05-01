@@ -47,7 +47,7 @@ class CategoryVC: UIViewController {
         let goToVC = segue.destination as! NewsSqlVC
        goToVC.category = categoryList[index!]
     }
-    
+     
 }
 
 extension CategoryVC : UICollectionViewDelegate , UICollectionViewDataSource{

@@ -15,6 +15,7 @@ struct APIResponse : Codable {
 }
 
 struct News : Codable{
+    
     let source : Source
     let title : String
     let description : String?
