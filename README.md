@@ -4,7 +4,10 @@
 - MVVM
 - Firebase
 - SQLite
+- RxSwift
+- SdWebImage
+- 
 ##
 
-![Screenshot 2024-04-19 at 22 08 20](https://github.com/ertekinbatuhan/News-App/assets/101355515/bd93c26e-fc08-460b-988b-2f3f813925b3)
+![Screenshot 2024-05-06 at 11 54 38](https://github.com/ertekinbatuhan/News-App/assets/101355515/ceb27fb8-4b55-4e2c-82a9-df5d35e24107)
 
