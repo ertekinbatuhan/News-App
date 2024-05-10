@@ -11,7 +11,6 @@ import Foundation
 class CategoryViewModel {
     
     
-    
     func databaseCopy(){
         
         let bundleWay = Bundle.main.path(forResource: "news", ofType: ".sqlite")

@@ -83,7 +83,9 @@ extension StoriesTableViewCell : UICollectionViewDelegate , UICollectionViewData
                 cell.configure(with: model)
             } else {
                 // urlToImage boş ise, bir varsayılan resim kullan
-              //  cell.configure(with: "defaultImage")
+              //  
+                
+              // cell.configure(with: "defaultImage")
             }
             
         

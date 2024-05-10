@@ -11,8 +11,8 @@ import SafariServices
 enum Sections : Int {
     
     case Everything = 0
-    case Technology = 1
-    case Business = 2
+    case Business = 1
+    case Technology = 2
     case Sports = 3
     case Entertainment = 4
     case Science = 5
@@ -22,10 +22,7 @@ enum Sections : Int {
 
 class StoriesVC: UIViewController {
    
-    
-    
-    
-    let sectionTitles  : [String] = ["Everything", "Business", "Technology", "Sports" , "Entertainment","Science","General"]
+    let sectionTitles  : [String] = ["Everything", "Business", "Technology", "Sports", "Entertainment","Science","General"]
     private let testTableView  : UITableView = {
        
         
@@ -102,6 +99,7 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
                         case.success(let titles):
                             DispatchQueue.main.async {
                                 cell.configure(with: titles)
+                              
                             }
                         case .failure(let error):
                             print(error.localizedDescription)
@@ -126,6 +124,7 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
                         case.success(let titles):
                             DispatchQueue.main.async {
                                 cell.configure(with: titles)
+                               
                             }
                         case .failure(let error):
                             print(error.localizedDescription)
