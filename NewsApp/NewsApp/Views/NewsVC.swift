@@ -106,28 +106,10 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         
         let addAction = UIContextualAction(style: .normal, title: "Add Favorites") {(contextualAction , view , boolValue) in
             
-          //  print("\(self.news[indexPath.row]) tıklandı")
-            
             let articlesIndex = self.news[indexPath.row]
             
             self.newsViewModel.addNewsToFirebase(articlesIndex: articlesIndex)
             
-        //    self.newsDaoRepository.addNewsToFirebase(articlesIndex: articlesIndex)
-            
-         /*   let fireStoreNewsData  = ["source" : articlesIndex.source.name,"title": articlesIndex.title, "description": articlesIndex.description!, "url": articlesIndex.url!, "urlToImage": articlesIndex.urlToImage ?? "null", "Date":FieldValue.serverTimestamp()]
-            
-            self.db.collection("News").addDocument(data: fireStoreNewsData , completion: { error in
-                
-                if error != nil {
-                    
-                    print(error?.localizedDescription ?? "test")
-                } else {
-                    
-                }
-                
-            })
-          */
-           
         }
                                     
             return UISwipeActionsConfiguration(actions: [addAction])

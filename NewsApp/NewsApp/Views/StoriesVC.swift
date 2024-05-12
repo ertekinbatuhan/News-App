@@ -37,7 +37,7 @@ class StoriesVC: UIViewController {
         view.addSubview(testTableView)
         view.backgroundColor = .systemBackground
        
-        // Do any additional setup after loading the view.
+        
         
         testTableView.dataSource = self
         testTableView.delegate = self
@@ -73,11 +73,9 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StoriesTableViewCell.identifier, for: indexPath) as? StoriesTableViewCell  else {
             return UITableViewCell()
             
-           
         }
         
         cell.delegate = self
-        
         
         DispatchQueue.global(qos: .background).async {
                 switch indexPath.section {
@@ -189,11 +187,7 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20 , y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         
-        
-        
         header.textLabel?.textColor  = .black
-        
-        
         
         header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
     }
