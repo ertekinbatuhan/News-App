@@ -20,17 +20,14 @@ final class APICaller {
         
         static let sportsURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=5d50a413e0b544ee99f6c97adea92e80")
         
-        
         static let generalURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=5d50a413e0b544ee99f6c97adea92e80")
         
         static let scienceURL = URL(string:"https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=5d50a413e0b544ee99f6c97adea92e80")
         
-        
         static let technologyURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=5d50a413e0b544ee99f6c97adea92e80")
         
         static let businessURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5d50a413e0b544ee99f6c97adea92e80")
-        
-        
+    
         static let searchUrlString = "https://newsapi.org/v2/top-headlines?apiKey=5d50a413e0b544ee99f6c97adea92e80&q="
        
     }
@@ -100,8 +97,6 @@ final class APICaller {
         task.resume()
     }
     
-    
-    
     public func getEntertainmentStories(completion: @escaping(Result<[News] , Error>) -> Void ) {
         guard let url = Constants.entartainmentsURL else {
             return
@@ -154,7 +149,6 @@ final class APICaller {
         task.resume()
     }
     
-    
     public func getBusinessStories(completion: @escaping(Result<[News] , Error>) -> Void ) {
         guard let url = Constants.businessURL else {
             return
@@ -180,8 +174,6 @@ final class APICaller {
         }
         task.resume()
     }
-    
-   
     
     public func getGeneralStrories(completion: @escaping(Result<[News] , Error>) -> Void ) {
         guard let url = Constants.generalURL else {
@@ -235,7 +227,6 @@ final class APICaller {
         task.resume()
     }
     
-    
     public func getTechnologyStories(completion: @escaping(Result<[News] , Error>) -> Void ) {
         guard let url = Constants.technologyURL else {
             return
@@ -261,14 +252,6 @@ final class APICaller {
         }
         task.resume()
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }
     
     

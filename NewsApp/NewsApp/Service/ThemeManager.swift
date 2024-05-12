@@ -8,9 +8,6 @@
 import Foundation
 import UIKit
 
-
-import UIKit
-
 class ThemeManager {
     static let shared = ThemeManager()
 
@@ -21,7 +18,7 @@ class ThemeManager {
             updateTheme()
         }
     }
-
+    
     func updateTheme() {
         if isDarkModeEnabled {
             applyDarkMode()
@@ -32,7 +29,7 @@ class ThemeManager {
 
     private func applyDarkMode() {
     
-         UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
     }
 
     private func applyLightMode() {
