@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C0099DB72B9B9EA200DE67B8 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0099DB62B9B9EA200DE67B8 /* SignUpVC.swift */; };
 		C0099DB92B9B9FBA00DE67B8 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0099DB82B9B9FBA00DE67B8 /* FavoriteVC.swift */; };
+		C020E74C2BF15B6400AA2A21 /* NewsAIVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C020E74B2BF15B6400AA2A21 /* NewsAIVC.swift */; };
+		C020E74F2BF15D8500AA2A21 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C020E74E2BF15D8500AA2A21 /* APIKey.swift */; };
+		C020E7512BF15DAB00AA2A21 /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C020E7502BF15DAB00AA2A21 /* GenerativeAI-Info.plist */; };
 		C02326482BD54D5D000FD9E5 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02326472BD54D5D000FD9E5 /* CategoryViewModel.swift */; };
 		C02B2B5A2BCEC246005A57E7 /* NewsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C02B2B582BCEC246005A57E7 /* NewsModel.xcdatamodeld */; };
 		C02B2B642BCEE835005A57E7 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02B2B632BCEE835005A57E7 /* CategoryVC.swift */; };
@@ -36,6 +39,8 @@
 		C06E0E642BA08C8100D74406 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C06E0E632BA08C8100D74406 /* RxSwift */; };
 		C06E0E672BA08CE100D74406 /* FavoriteDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06E0E662BA08CE100D74406 /* FavoriteDaoRepository.swift */; };
 		C06E0E6A2BA0905200D74406 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06E0E692BA0905200D74406 /* FavoriteViewModel.swift */; };
+		C079C5B82BF15F3C004EE6DC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C079C5B72BF15F3C004EE6DC /* FirebaseFirestore */; };
+		C079C5BB2BF15F5D004EE6DC /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = C079C5BA2BF15F5D004EE6DC /* GoogleGenerativeAI */; };
 		C07C76F62BCEEF7B0000CC1A /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C07C76EB2BCEEF7B0000CC1A /* FMDatabaseAdditions.m */; };
 		C07C76F72BCEEF7B0000CC1A /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C07C76F02BCEEF7B0000CC1A /* FMDatabasePool.m */; };
 		C07C76F82BCEEF7B0000CC1A /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C07C76F12BCEEF7B0000CC1A /* FMResultSet.m */; };
@@ -54,14 +59,13 @@
 		C0C7ECE22B9C547A0098C4A9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C0C7ECE12B9C547A0098C4A9 /* FirebaseStorage */; };
 		C0CA72732B9F1308006580AD /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA72722B9F1308006580AD /* SettingsVC.swift */; };
 		C0CA9B772B9F3418001D033B /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA9B762B9F3418001D033B /* ThemeManager.swift */; };
-		C0DD7F5C2BE24E7B00F0AE4D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C0DD7F5B2BE24E7B00F0AE4D /* Kingfisher */; };
+		C0D1CAAD2BF15FFE0065D9E9 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = C0D1CAAC2BF15FFE0065D9E9 /* GoogleGenerativeAI */; };
 		C0E1FC2D2BE1034100D3745D /* StoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E1FC2C2BE1034100D3745D /* StoriesVC.swift */; };
 		C0E1FC312BE1073F00D3745D /* StoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E1FC302BE1073F00D3745D /* StoriesTableViewCell.swift */; };
 		C0E1FC342BE10B8500D3745D /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E1FC332BE10B8500D3745D /* HeroHeaderUIView.swift */; };
 		C0E1FC362BE10E9900D3745D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E1FC352BE10E9900D3745D /* Extensions.swift */; };
 		C0E1FC382BE11F1C00D3745D /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E1FC372BE11F1C00D3745D /* TitleCollectionViewCell.swift */; };
 		C0E1FC3B2BE1264900D3745D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C0E1FC3A2BE1264900D3745D /* SDWebImage */; };
-		C0E1FC3D2BE1264900D3745D /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C0E1FC3C2BE1264900D3745D /* SDWebImageMapKit */; };
 		C0FEEFD12B9F784700A34375 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FEEFD02B9F784700A34375 /* News.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +82,9 @@
 /* Begin PBXFileReference section */
 		C0099DB62B9B9EA200DE67B8 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		C0099DB82B9B9FBA00DE67B8 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		C020E74B2BF15B6400AA2A21 /* NewsAIVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAIVC.swift; sourceTree = "<group>"; };
+		C020E74E2BF15D8500AA2A21 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		C020E7502BF15DAB00AA2A21 /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		C02326472BD54D5D000FD9E5 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		C02B2B592BCEC246005A57E7 /* NewsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsModel.xcdatamodel; sourceTree = "<group>"; };
 		C02B2B632BCEE835005A57E7 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -144,11 +151,10 @@
 				C06E0E642BA08C8100D74406 /* RxSwift in Frameworks */,
 				C0C7ECDE2B9C545A0098C4A9 /* FirebaseAuth in Frameworks */,
 				C0C7ECE02B9C546B0098C4A9 /* FirebaseFirestore in Frameworks */,
-				C0DD7F5C2BE24E7B00F0AE4D /* Kingfisher in Frameworks */,
 				C0E1FC3B2BE1264900D3745D /* SDWebImage in Frameworks */,
+				C0D1CAAD2BF15FFE0065D9E9 /* GoogleGenerativeAI in Frameworks */,
 				C0C7ECD32B9C54300098C4A9 /* FirebaseAnalytics in Frameworks */,
 				C0C7ECE22B9C547A0098C4A9 /* FirebaseStorage in Frameworks */,
-				C0E1FC3D2BE1264900D3745D /* SDWebImageMapKit in Frameworks */,
 				C0C7ECD52B9C54300098C4A9 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +163,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C079C5B82BF15F3C004EE6DC /* FirebaseFirestore in Frameworks */,
+				C079C5BB2BF15F5D004EE6DC /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +267,7 @@
 				C05CE74C2B9BAA3C00145DB7 /* SignInVC.swift */,
 				C0CA72722B9F1308006580AD /* SettingsVC.swift */,
 				C0E1FC2C2BE1034100D3745D /* StoriesVC.swift */,
+				C020E74B2BF15B6400AA2A21 /* NewsAIVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +277,8 @@
 			children = (
 				C0301DB52B8CFEDA00F49706 /* APICaller.swift */,
 				C0CA9B762B9F3418001D033B /* ThemeManager.swift */,
+				C020E74E2BF15D8500AA2A21 /* APIKey.swift */,
+				C020E7502BF15DAB00AA2A21 /* GenerativeAI-Info.plist */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -339,8 +350,7 @@
 				C0C7ECE12B9C547A0098C4A9 /* FirebaseStorage */,
 				C06E0E632BA08C8100D74406 /* RxSwift */,
 				C0E1FC3A2BE1264900D3745D /* SDWebImage */,
-				C0E1FC3C2BE1264900D3745D /* SDWebImageMapKit */,
-				C0DD7F5B2BE24E7B00F0AE4D /* Kingfisher */,
+				C0D1CAAC2BF15FFE0065D9E9 /* GoogleGenerativeAI */,
 			);
 			productName = NewsApp;
 			productReference = C0301D9E2B8CFC1B00F49706 /* NewsApp.app */;
@@ -360,6 +370,10 @@
 				C061D9D22BEF76B80005E337 /* PBXTargetDependency */,
 			);
 			name = NewsAppUITests;
+			packageProductDependencies = (
+				C079C5B72BF15F3C004EE6DC /* FirebaseFirestore */,
+				C079C5BA2BF15F5D004EE6DC /* GoogleGenerativeAI */,
+			);
 			productName = NewsAppUITests;
 			productReference = C061D9CB2BEF76B80005E337 /* NewsAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -398,6 +412,7 @@
 				C06E0E622BA08C6800D74406 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C0E1FC392BE1264900D3745D /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				C0DD7F5A2BE24E7B00F0AE4D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C079C5B92BF15F54004EE6DC /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 			);
 			productRefGroup = C0301D9F2B8CFC1B00F49706 /* Products */;
 			projectDirPath = "";
@@ -416,6 +431,7 @@
 			files = (
 				C0301DAE2B8CFC1C00F49706 /* LaunchScreen.storyboard in Resources */,
 				C0C7ECCE2B9C4AFA0098C4A9 /* newspaper.png in Resources */,
+				C020E7512BF15DAB00AA2A21 /* GenerativeAI-Info.plist in Resources */,
 				C035AC662BD0030A001996CB /* news.sqlite in Resources */,
 				C0C7ECD02B9C50110098C4A9 /* GoogleService-Info.plist in Resources */,
 				C0301DAB2B8CFC1C00F49706 /* Assets.xcassets in Resources */,
@@ -438,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C05CE74D2B9BAA3C00145DB7 /* SignInVC.swift in Sources */,
+				C020E74C2BF15B6400AA2A21 /* NewsAIVC.swift in Sources */,
 				C0301DA62B8CFC1B00F49706 /* NewsVC.swift in Sources */,
 				C0C601732BD054DE009D5EA5 /* SwitchTableViewCell.swift in Sources */,
 				C06E0E672BA08CE100D74406 /* FavoriteDaoRepository.swift in Sources */,
@@ -472,6 +489,7 @@
 				C06E0E6A2BA0905200D74406 /* FavoriteViewModel.swift in Sources */,
 				C0E1FC342BE10B8500D3745D /* HeroHeaderUIView.swift in Sources */,
 				C0301DA42B8CFC1B00F49706 /* SceneDelegate.swift in Sources */,
+				C020E74F2BF15D8500AA2A21 /* APIKey.swift in Sources */,
 				C035AC5E2BCFE7F8001996CB /* NewsSqlVC.swift in Sources */,
 				C0301DB62B8CFEDA00F49706 /* APICaller.swift in Sources */,
 				C086C6302B9E1E910038D9A7 /* FavoriteNews.swift in Sources */,
@@ -779,6 +797,14 @@
 				minimumVersion = 6.6.0;
 			};
 		};
+		C079C5B92BF15F54004EE6DC /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google-gemini/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.2;
+			};
+		};
 		C0C7ECD12B9C54300098C4A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -811,6 +837,16 @@
 			package = C06E0E622BA08C6800D74406 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
+		C079C5B72BF15F3C004EE6DC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0C7ECD12B9C54300098C4A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		C079C5BA2BF15F5D004EE6DC /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C079C5B92BF15F54004EE6DC /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
 		C0C7ECD22B9C54300098C4A9 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C0C7ECD12B9C54300098C4A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -836,20 +872,15 @@
 			package = C0C7ECD12B9C54300098C4A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		C0DD7F5B2BE24E7B00F0AE4D /* Kingfisher */ = {
+		C0D1CAAC2BF15FFE0065D9E9 /* GoogleGenerativeAI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C0DD7F5A2BE24E7B00F0AE4D /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
+			package = C079C5B92BF15F54004EE6DC /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
 		};
 		C0E1FC3A2BE1264900D3745D /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C0E1FC392BE1264900D3745D /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
-		};
-		C0E1FC3C2BE1264900D3745D /* SDWebImageMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0E1FC392BE1264900D3745D /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 

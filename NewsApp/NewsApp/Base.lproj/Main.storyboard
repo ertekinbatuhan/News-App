@@ -198,6 +198,75 @@
             </objects>
             <point key="canvasLocation" x="3694" y="-2439"/>
         </scene>
+        <!--NewsAIVC-->
+        <scene sceneID="v1J-Ay-CE7">
+            <objects>
+                <viewController id="P8i-aK-tU5" customClass="NewsAIVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Jq-CM-i9y">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsai" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-hC-ikR">
+                                <rect key="frame" x="6" y="60" width="379" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="184" id="wRp-9D-pAF"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2h-h6-nop">
+                                <rect key="frame" x="16" y="227" width="361" height="525"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZd-aT-wbw">
+                                <rect key="frame" x="326" y="764" width="59" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="3AH-Jg-F3S"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="newsAIButton:" destination="P8i-aK-tU5" eventType="touchUpInside" id="kQX-T7-0Jt"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter something" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7iC-9L-DOK">
+                                <rect key="frame" x="6" y="764" width="312" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="T1V-TQ-GPs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hiS-zs-7zB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c2h-h6-nop" firstAttribute="leading" secondItem="4Jq-CM-i9y" secondAttribute="leadingMargin" id="1Na-KH-Q8I"/>
+                            <constraint firstItem="7iC-9L-DOK" firstAttribute="top" secondItem="c2h-h6-nop" secondAttribute="bottom" constant="12" id="7bN-ER-drh"/>
+                            <constraint firstItem="7iC-9L-DOK" firstAttribute="top" secondItem="SZd-aT-wbw" secondAttribute="top" id="8cu-bt-10y"/>
+                            <constraint firstItem="7iC-9L-DOK" firstAttribute="centerY" secondItem="SZd-aT-wbw" secondAttribute="centerY" id="IoR-gX-sSi"/>
+                            <constraint firstItem="bnv-hC-ikR" firstAttribute="trailing" secondItem="SZd-aT-wbw" secondAttribute="trailing" id="IsG-3M-Whc"/>
+                            <constraint firstItem="hiS-zs-7zB" firstAttribute="trailing" secondItem="bnv-hC-ikR" secondAttribute="trailing" constant="8" id="X5t-P4-D1v"/>
+                            <constraint firstItem="c2h-h6-nop" firstAttribute="top" secondItem="hiS-zs-7zB" secondAttribute="top" constant="131" id="XkZ-h4-2Ty"/>
+                            <constraint firstItem="bnv-hC-ikR" firstAttribute="leading" secondItem="hiS-zs-7zB" secondAttribute="leading" constant="6" id="Y5E-8w-HG8"/>
+                            <constraint firstItem="bnv-hC-ikR" firstAttribute="leading" secondItem="7iC-9L-DOK" secondAttribute="leading" id="cZb-4d-ygP"/>
+                            <constraint firstItem="c2h-h6-nop" firstAttribute="trailing" secondItem="4Jq-CM-i9y" secondAttribute="trailingMargin" id="de4-9p-ozk"/>
+                            <constraint firstItem="hiS-zs-7zB" firstAttribute="bottom" secondItem="7iC-9L-DOK" secondAttribute="bottom" constant="5" id="eGK-Eh-lu8"/>
+                            <constraint firstItem="bnv-hC-ikR" firstAttribute="top" secondItem="4Jq-CM-i9y" secondAttribute="topMargin" constant="-36" id="p1r-So-zRe"/>
+                            <constraint firstItem="SZd-aT-wbw" firstAttribute="leading" secondItem="7iC-9L-DOK" secondAttribute="trailing" constant="8" id="qa5-Uq-MnF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VnI-YG-644"/>
+                    <connections>
+                        <outlet property="newsAILabel" destination="c2h-h6-nop" id="xoV-s7-9m0"/>
+                        <outlet property="newsAITextField" destination="7iC-9L-DOK" id="N7I-7h-QxT"/>
+                        <outlet property="newsAIView" destination="bnv-hC-ikR" id="7ds-mi-M1Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U6W-iV-eUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4756.4885496183206" y="-2399.2957746478874"/>
+        </scene>
         <!--Favorites-->
         <scene sceneID="lQE-tn-wAO">
             <objects>
@@ -536,6 +605,7 @@
                     <connections>
                         <segue destination="614-do-jEH" kind="presentation" identifier="toSignInVC" modalPresentationStyle="fullScreen" id="Vw0-5m-eyw"/>
                         <segue destination="ZeQ-ZP-wVB" kind="presentation" identifier="toFavorites" id="Y9t-Hk-caE"/>
+                        <segue destination="P8i-aK-tU5" kind="show" identifier="toNewsAIVC" id="26b-kI-gBj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSE-wX-YcQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -757,8 +827,10 @@
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="newsai" width="1024" height="398"/>
         <image name="newsmic" width="512" height="512"/>
         <image name="paperplane" catalog="system" width="128" height="119"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">

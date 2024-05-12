@@ -77,6 +77,16 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
             
             ]))
         
+        models.append(Section(title: "News AI", options: [
+            
+            .staticCell(model: SettingsOption(title: "News AI", icon:UIImage(systemName: "brain.filled.head.profile"),iconBackgroundColor: .black){
+                    
+                self.performSegue(withIdentifier: "toNewsAIVC", sender: nil)
+                }),
+            
+        ]))
+        
+        
         models.append(Section(title: "Favorites", options: [
             
             .staticCell(model: SettingsOption(title: "Favorites", icon:UIImage(systemName: "heart.fill"),iconBackgroundColor: .systemRed){
