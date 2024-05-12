@@ -82,10 +82,7 @@ extension StoriesTableViewCell : UICollectionViewDelegate , UICollectionViewData
         if let model  = getNews[indexPath.row].urlToImage {
                 cell.configure(with: model)
             } else {
-                // urlToImage boş ise, bir varsayılan resim kullan
-              //  
-                
-              // cell.configure(with: "defaultImage")
+             
             }
             
         

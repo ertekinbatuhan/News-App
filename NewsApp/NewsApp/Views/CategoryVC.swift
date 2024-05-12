@@ -19,8 +19,6 @@ class CategoryVC: UIViewController {
 
         categoryViewModel.databaseCopy()
         
-        //  databaseCopy()
-       
         categoryList = CategoryDao().allCategory()
         
         collectionView.dataSource = self
