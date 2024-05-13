@@ -31,10 +31,8 @@ class NewsAIVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newsAILabel.text = aiResponse
-        
     }
     
-
     @IBAction func newsAIButton(_ sender: Any) {
         
         sendMessage()
@@ -42,17 +40,19 @@ class NewsAIVC: UIViewController {
     
     func sendMessage() {
         guard let inputText = newsAITextField.text, !inputText.isEmpty else {
-            
             return
         }
         Task {
             do {
                 let response = try await model.generateContent(inputText)
                 
-                guard let text = response.text else  {
+                guard var text = response.text else  {
                     aiResponse = "Sorry, I could not process that.\nPlease try again."
                     return
                 }
+                
+                text = text.replacingOccurrences(of: "*", with: "")
+                text = text.replacingOccurrences(of: "**", with: "")
                 
                 textInput = ""
                 aiResponse = text
@@ -62,4 +62,5 @@ class NewsAIVC: UIViewController {
             }
         }
     }
+
 }
