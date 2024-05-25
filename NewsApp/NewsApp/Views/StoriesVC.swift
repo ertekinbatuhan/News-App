@@ -8,7 +8,7 @@
 import UIKit
 import SafariServices
 
-enum Sections : Int {
+ /*enum Sections : Int {
     
     case General = 0
     case Business = 1
@@ -18,9 +18,20 @@ enum Sections : Int {
     case Science = 5
    
 }
+  */
+
+enum Sections: Int, CaseIterable {
+    case General = 0
+    case Business
+    case Technology
+    case Sports
+    case Entertainment
+    case Science
+}
 
 class StoriesVC: UIViewController {
-   
+    
+    private let viewModel = StoriesViewModel()
     let sectionTitles  : [String] = ["General", "Business", "Technology", "Sports", "Entertainment","Science",]
     private let testTableView  : UITableView = {
        
@@ -36,14 +47,19 @@ class StoriesVC: UIViewController {
         view.addSubview(testTableView)
         view.backgroundColor = .systemBackground
        
-        
+        viewModel.reloadTableView = { [weak self] in
+                    self?.testTableView.reloadData()
+                }
         
         testTableView.dataSource = self
         testTableView.delegate = self
         
-        
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         testTableView.tableHeaderView = headerView
+        
+        for section in Sections.allCases {
+                    viewModel.fetchStories(for: section)
+                }
     }
     
     override func viewDidLayoutSubviews() {
@@ -72,8 +88,10 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.delegate = self
-        
-        DispatchQueue.global(qos: .background).async {
+        if let news = viewModel.stories[indexPath.section] {
+                    cell.configure(with: news)
+                }
+     /*   DispatchQueue.global(qos: .background).async {
                 switch indexPath.section {
                 case Sections.Entertainment.rawValue:
                     APICaller.shared.getEntertainmentStories { result in
@@ -154,6 +172,7 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
                     break
                 }
             }
+      */
             
             return cell
     }
@@ -177,7 +196,8 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitles[section]
+       // return sectionTitles[section]
+        return viewModel.sectionTitles[section]
     }
     
 }
