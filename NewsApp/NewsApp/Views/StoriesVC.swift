@@ -16,13 +16,12 @@ enum Sections : Int {
     case Sports = 3
     case Entertainment = 4
     case Science = 5
-    case Everything = 6
    
 }
 
 class StoriesVC: UIViewController {
    
-    let sectionTitles  : [String] = ["General", "Business", "Technology", "Sports", "Entertainment","Science","Everything"]
+    let sectionTitles  : [String] = ["General", "Business", "Technology", "Sports", "Entertainment","Science",]
     private let testTableView  : UITableView = {
        
         

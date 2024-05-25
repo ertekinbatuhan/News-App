@@ -99,15 +99,11 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
-      
-
         deleteAction.backgroundColor = .red
 
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    
-    // Sol tarafa kaydırarak gelen "Copy URL" eylemi
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let copyUrlAction = UIContextualAction(style: .normal, title: "Copy URL") { [weak self] (contextualAction, view, boolValue) in
             guard let self = self else { return }
