@@ -87,18 +87,6 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
                         }
                     }
                     
-                case Sections.Everything.rawValue:
-                    APICaller.shared.getTopStories { result in
-                        switch result {
-                        case.success(let titles):
-                            DispatchQueue.main.async {
-                                cell.configure(with: titles)
-                              
-                            }
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
                     
                 case Sections.Sports.rawValue:
                     APICaller.shared.getSportsStories { result in
