@@ -98,10 +98,33 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
 
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
+      
 
         deleteAction.backgroundColor = .red
 
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    
+    // Sol tarafa kaydırarak gelen "Copy URL" eylemi
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let copyUrlAction = UIContextualAction(style: .normal, title: "Copy URL") { [weak self] (contextualAction, view, boolValue) in
+            guard let self = self else { return }
+
+            let selectedNews = self.isSearching ? self.searchArray[indexPath.row] : self.newsItems[indexPath.row]
+            let url = selectedNews.url
+
+            UIPasteboard.general.string = url
+
+            let alert = UIAlertController(title: "URL Copied", message: "The URL has been copied to your clipboard.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
+        copyUrlAction.backgroundColor = .systemBlue
+
+        return UISwipeActionsConfiguration(actions: [copyUrlAction])
     }
 
     func deleteNewsFromFirestore(newsItem: FavoriteNews) {

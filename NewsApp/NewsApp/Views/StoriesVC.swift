@@ -10,19 +10,19 @@ import SafariServices
 
 enum Sections : Int {
     
-    case Everything = 0
+    case General = 0
     case Business = 1
     case Technology = 2
     case Sports = 3
     case Entertainment = 4
     case Science = 5
-    case General = 6
+    case Everything = 6
    
 }
 
 class StoriesVC: UIViewController {
    
-    let sectionTitles  : [String] = ["Everything", "Business", "Technology", "Sports", "Entertainment","Science","General"]
+    let sectionTitles  : [String] = ["General", "Business", "Technology", "Sports", "Entertainment","Science","Everything"]
     private let testTableView  : UITableView = {
        
         
@@ -55,7 +55,6 @@ class StoriesVC: UIViewController {
 
 }
 
-
 extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,8 +66,6 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-      
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StoriesTableViewCell.identifier, for: indexPath) as? StoriesTableViewCell  else {
             return UITableViewCell()
