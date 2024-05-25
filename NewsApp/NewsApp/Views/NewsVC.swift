@@ -109,8 +109,9 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
             let articlesIndex = self.news[indexPath.row]
             
             self.newsViewModel.addNewsToFirebase(articlesIndex: articlesIndex)
-            
+           
         }
+        addAction.backgroundColor = .systemGreen
                                     
             return UISwipeActionsConfiguration(actions: [addAction])
     }
