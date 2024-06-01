@@ -2,11 +2,10 @@ import Foundation
 
 class StoriesViewModel {
     var sectionTitles: [String] = ["General", "Business", "Technology", "Sports", "Entertainment", "Science"]
-    var stories: [Int: [News]] = [:] // Her bölüm için News nesnelerini tutacak bir sözlük
+    var stories: [Int: [News]] = [:]
     var reloadTableView: (() -> Void)?
 
     func fetchStories(for section: Sections) {
-        print("Fetching stories for section: \(section)")
         switch section {
         case .Entertainment:
             APICaller.shared.getEntertainmentStories { [weak self] result in

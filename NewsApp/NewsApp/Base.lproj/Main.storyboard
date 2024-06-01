@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="614-do-jEH">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -196,9 +196,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tH-ht-0ub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3694" y="-2439"/>
+            <point key="canvasLocation" x="2967" y="-2592"/>
         </scene>
-        <!--NewsAIVC-->
+        <!--Item-->
         <scene sceneID="v1J-Ay-CE7">
             <objects>
                 <viewController id="P8i-aK-tU5" customClass="NewsAIVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -209,19 +209,22 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsai" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-hC-ikR">
                                 <rect key="frame" x="6" y="60" width="379" height="184"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="184" id="wRp-9D-pAF"/>
+                                    <constraint firstAttribute="height" constant="184" id="h1d-Jp-hJt"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2h-h6-nop">
-                                <rect key="frame" x="16" y="227" width="361" height="525"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <rect key="frame" x="6" y="203" width="379" height="401"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="401" id="3zs-zf-fLg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZd-aT-wbw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZd-aT-wbw">
                                 <rect key="frame" x="326" y="764" width="59" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="59" id="3AH-Jg-F3S"/>
+                                    <constraint firstAttribute="width" constant="59" id="QV1-vI-6jM"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system"/>
@@ -229,11 +232,9 @@
                                     <action selector="newsAIButton:" destination="P8i-aK-tU5" eventType="touchUpInside" id="kQX-T7-0Jt"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter something" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7iC-9L-DOK">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter something" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7iC-9L-DOK">
                                 <rect key="frame" x="6" y="764" width="312" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="T1V-TQ-GPs"/>
-                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -241,21 +242,21 @@
                         <viewLayoutGuide key="safeArea" id="hiS-zs-7zB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="c2h-h6-nop" firstAttribute="leading" secondItem="4Jq-CM-i9y" secondAttribute="leadingMargin" id="1Na-KH-Q8I"/>
-                            <constraint firstItem="7iC-9L-DOK" firstAttribute="top" secondItem="c2h-h6-nop" secondAttribute="bottom" constant="12" id="7bN-ER-drh"/>
-                            <constraint firstItem="7iC-9L-DOK" firstAttribute="top" secondItem="SZd-aT-wbw" secondAttribute="top" id="8cu-bt-10y"/>
-                            <constraint firstItem="7iC-9L-DOK" firstAttribute="centerY" secondItem="SZd-aT-wbw" secondAttribute="centerY" id="IoR-gX-sSi"/>
-                            <constraint firstItem="bnv-hC-ikR" firstAttribute="trailing" secondItem="SZd-aT-wbw" secondAttribute="trailing" id="IsG-3M-Whc"/>
-                            <constraint firstItem="hiS-zs-7zB" firstAttribute="trailing" secondItem="bnv-hC-ikR" secondAttribute="trailing" constant="8" id="X5t-P4-D1v"/>
-                            <constraint firstItem="c2h-h6-nop" firstAttribute="top" secondItem="hiS-zs-7zB" secondAttribute="top" constant="131" id="XkZ-h4-2Ty"/>
-                            <constraint firstItem="bnv-hC-ikR" firstAttribute="leading" secondItem="hiS-zs-7zB" secondAttribute="leading" constant="6" id="Y5E-8w-HG8"/>
-                            <constraint firstItem="bnv-hC-ikR" firstAttribute="leading" secondItem="7iC-9L-DOK" secondAttribute="leading" id="cZb-4d-ygP"/>
-                            <constraint firstItem="c2h-h6-nop" firstAttribute="trailing" secondItem="4Jq-CM-i9y" secondAttribute="trailingMargin" id="de4-9p-ozk"/>
-                            <constraint firstItem="hiS-zs-7zB" firstAttribute="bottom" secondItem="7iC-9L-DOK" secondAttribute="bottom" constant="5" id="eGK-Eh-lu8"/>
-                            <constraint firstItem="bnv-hC-ikR" firstAttribute="top" secondItem="4Jq-CM-i9y" secondAttribute="topMargin" constant="-36" id="p1r-So-zRe"/>
-                            <constraint firstItem="SZd-aT-wbw" firstAttribute="leading" secondItem="7iC-9L-DOK" secondAttribute="trailing" constant="8" id="qa5-Uq-MnF"/>
+                            <constraint firstItem="bnv-hC-ikR" firstAttribute="trailing" secondItem="c2h-h6-nop" secondAttribute="trailing" id="0QK-So-3Aq"/>
+                            <constraint firstItem="bnv-hC-ikR" firstAttribute="leading" secondItem="c2h-h6-nop" secondAttribute="leading" id="9SR-qX-kPl"/>
+                            <constraint firstItem="bnv-hC-ikR" firstAttribute="top" secondItem="4Jq-CM-i9y" secondAttribute="topMargin" constant="-36" id="Cxw-FN-NZU"/>
+                            <constraint firstItem="hiS-zs-7zB" firstAttribute="bottom" secondItem="SZd-aT-wbw" secondAttribute="bottom" constant="4" id="JPX-Xr-GYf"/>
+                            <constraint firstItem="7iC-9L-DOK" firstAttribute="centerY" secondItem="SZd-aT-wbw" secondAttribute="centerY" id="MjX-De-5tL"/>
+                            <constraint firstItem="SZd-aT-wbw" firstAttribute="leading" secondItem="7iC-9L-DOK" secondAttribute="trailing" constant="8" id="SiD-LA-TAh"/>
+                            <constraint firstItem="c2h-h6-nop" firstAttribute="top" secondItem="hiS-zs-7zB" secondAttribute="top" constant="107" id="V2q-TD-LNi"/>
+                            <constraint firstItem="c2h-h6-nop" firstAttribute="leading" secondItem="7iC-9L-DOK" secondAttribute="leading" id="ata-ml-fvL"/>
+                            <constraint firstItem="7iC-9L-DOK" firstAttribute="top" secondItem="SZd-aT-wbw" secondAttribute="top" id="cNL-st-MDF"/>
+                            <constraint firstItem="hiS-zs-7zB" firstAttribute="trailing" secondItem="bnv-hC-ikR" secondAttribute="trailing" constant="8" id="gJt-B5-Tmi"/>
+                            <constraint firstItem="bnv-hC-ikR" firstAttribute="leading" secondItem="hiS-zs-7zB" secondAttribute="leading" constant="6" id="i0G-nC-hkg"/>
+                            <constraint firstItem="c2h-h6-nop" firstAttribute="trailing" secondItem="SZd-aT-wbw" secondAttribute="trailing" id="q7u-Id-twU"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="brain" catalog="system" id="hCS-6Q-gWU"/>
                     <navigationItem key="navigationItem" id="VnI-YG-644"/>
                     <connections>
                         <outlet property="newsAILabel" destination="c2h-h6-nop" id="xoV-s7-9m0"/>
@@ -265,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6W-iV-eUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4756.4885496183206" y="-2399.2957746478874"/>
+            <point key="canvasLocation" x="-4089" y="-1157"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="lQE-tn-wAO">
@@ -393,7 +394,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggl-Bo-Mn4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3558" y="-1091"/>
+            <point key="canvasLocation" x="-2813" y="-1157"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="bck-h3-4nr">
@@ -817,11 +818,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Vw0-5m-eyw"/>
-        <segue reference="e3X-pK-Ykw"/>
+        <segue reference="7Hs-Ee-wfu"/>
         <segue reference="Y9t-Hk-caE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="750" height="1624"/>
+        <image name="brain" catalog="system" width="128" height="107"/>
         <image name="firebase_28dp.png" width="56" height="56"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>

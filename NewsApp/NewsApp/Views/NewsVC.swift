@@ -35,9 +35,22 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         
         ThemeManager.shared.updateTheme()
         
+        
         createSearchBar()
         
-        APICaller.shared.getTopStories{ [weak self]  result in
+        newsViewModel.reloadTableView = { [weak self] in
+                  DispatchQueue.main.async {
+                      self?.tableView.reloadData()
+                  }
+              }
+              
+              newsViewModel.showError = { error in
+                  print(error)
+              }
+              
+              newsViewModel.fetchTopStories()
+        
+     /*   APICaller.shared.getTopStories{ [weak self]  result in
             switch result {
             case .success(let articles):
                 self?.news = articles
@@ -54,6 +67,8 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
                 print(error)
             }
         }
+      
+      */
     }
     
     private func createSearchBar() {
@@ -68,7 +83,8 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
+       // return viewModels.count
+        return newsViewModel.viewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,7 +93,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
             fatalError()
         }
         
-        cell.configure(with: viewModels[indexPath.row])
+        cell.configure(with: newsViewModel.viewModels[indexPath.row])
         
     
         return cell
@@ -86,7 +102,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let article = news[indexPath.row]
+        let article = newsViewModel.news[indexPath.row]
         
         
         guard let url =  URL(string : article.url ?? "") else {
@@ -106,7 +122,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         
         let addAction = UIContextualAction(style: .normal, title: "Add Favorites") {(contextualAction , view , boolValue) in
             
-            let articlesIndex = self.news[indexPath.row]
+            let articlesIndex = self.newsViewModel.news[indexPath.row]
             
             self.newsViewModel.addNewsToFirebase(articlesIndex: articlesIndex)
            
@@ -119,11 +135,15 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
            
-            loadTopStories()
+            newsViewModel.fetchTopStories()
+            
+           // loadTopStories()
+        } else {
+            newsViewModel.searchNews(with: searchText)
         }
     }
 
-    func loadTopStories() {
+/*    func loadTopStories() {
         APICaller.shared.getTopStories { [weak self] result in
             switch result {
             case .success(let articles):
@@ -139,13 +159,16 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
             }
         }
     }
+ 
+ */
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.isEmpty else {
             return
         }
         
-        APICaller.shared.search(with: text) { [weak self] result in
+        newsViewModel.searchNews(with: text)
+    /*    APICaller.shared.search(with: text) { [weak self] result in
             switch result {
             case .success(let articles):
                 self?.news = articles
@@ -160,6 +183,8 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
                 print(error)
             }
         }
+     
+     */
     }
 
 }

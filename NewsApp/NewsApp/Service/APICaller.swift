@@ -12,6 +12,7 @@ final class APICaller {
     static let shared = APICaller()
     
     struct Constants {
+    
         
         static let topHeadlinesURL = URL(string:"https://newsapi.org/v2/everything?q=us&apiKey=5d50a413e0b544ee99f6c97adea92e80")
          
@@ -26,6 +27,7 @@ final class APICaller {
         static let technologyURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=5d50a413e0b544ee99f6c97adea92e80")
         
         static let businessURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5d50a413e0b544ee99f6c97adea92e80")
+        
     
         static let searchUrlString = "https://newsapi.org/v2/top-headlines?apiKey=5d50a413e0b544ee99f6c97adea92e80&q="
        
