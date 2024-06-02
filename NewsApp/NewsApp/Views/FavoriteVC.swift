@@ -97,23 +97,24 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let copyUrlAction = UIContextualAction(style: .normal, title: "Copy URL") { [weak self] (contextualAction, view, boolValue) in
+        let shareUrlAction = UIContextualAction(style: .normal, title: "Share URL") { [weak self] (contextualAction, view, boolValue) in
             guard let self = self else { return }
 
             let selectedNews = self.isSearching ? self.searchArray[indexPath.row] : self.newsItems[indexPath.row]
             let url = selectedNews.url
 
-            UIPasteboard.general.string = url
-
-            let alert = UIAlertController(title: "URL Copied", message: "The URL has been copied to your clipboard.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            let activityViewController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+            if let popoverController = activityViewController.popoverPresentationController {
+                popoverController.sourceView = view
+            }
+            self.present(activityViewController, animated: true, completion: nil)
         }
 
-        copyUrlAction.backgroundColor = .systemBlue
+        shareUrlAction.backgroundColor = .systemBlue
 
-        return UISwipeActionsConfiguration(actions: [copyUrlAction])
+        return UISwipeActionsConfiguration(actions: [shareUrlAction])
     }
+
 
     func deleteNewsFromFirestore(newsItem: FavoriteNews) {
            favoriteViewModel.deleteNews(newsItem: newsItem) { [weak self] error in

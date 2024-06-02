@@ -8,18 +8,6 @@
 import UIKit
 import SafariServices
 
- /*enum Sections : Int {
-    
-    case General = 0
-    case Business = 1
-    case Technology = 2
-    case Sports = 3
-    case Entertainment = 4
-    case Science = 5
-   
-}
-  */
-
 enum Sections: Int, CaseIterable {
     case General = 0
     case Business

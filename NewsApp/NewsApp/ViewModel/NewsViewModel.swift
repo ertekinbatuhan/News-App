@@ -18,8 +18,6 @@ class NewsViewModel {
     var reloadTableView: (() -> Void)?
     var showError: ((Error) -> Void)?
 
-        
-    
     func addNewsToFirebase(articlesIndex : News) {
         
     newsDaoRepository.addNewsToFirebase(articlesIndex: articlesIndex)
