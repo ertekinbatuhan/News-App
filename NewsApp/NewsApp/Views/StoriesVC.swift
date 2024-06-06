@@ -79,88 +79,7 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
         if let news = viewModel.stories[indexPath.section] {
                     cell.configure(with: news)
                 }
-     /*   DispatchQueue.global(qos: .background).async {
-                switch indexPath.section {
-                case Sections.Entertainment.rawValue:
-                    APICaller.shared.getEntertainmentStories { result in
-                        switch result {
-                        case.success(let titles):
-                            DispatchQueue.main.async {
-                                cell.configure(with: titles)
-                            }
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                    
-                    
-                case Sections.Sports.rawValue:
-                    APICaller.shared.getSportsStories { result in
-                        switch result {
-                        case.success(let titles):
-                            DispatchQueue.main.async {
-                                cell.configure(with: titles)
-                            }
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                    
-                case Sections.Technology.rawValue:
-                    APICaller.shared.getTechnologyStories { result in
-                        switch result {
-                        case.success(let titles):
-                            DispatchQueue.main.async {
-                                cell.configure(with: titles)
-                               
-                            }
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                    
-                case Sections.Business.rawValue:
-                    APICaller.shared.getBusinessStories { result in
-                        switch result {
-                        case.success(let titles):
-                            DispatchQueue.main.async {
-                                cell.configure(with: titles)
-                            }
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                    
-                    
-                case Sections.General.rawValue:
-                    APICaller.shared.getGeneralStrories { result in
-                        switch result {
-                        case.success(let titles):
-                            DispatchQueue.main.async {
-                                cell.configure(with: titles)
-                            }
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                    
-                case Sections.Science.rawValue:
-                    APICaller.shared.getScienceStories { result in
-                        switch result {
-                        case.success(let titles):
-                            DispatchQueue.main.async {
-                                cell.configure(with: titles)
-                            }
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                    
-                default:
-                    break
-                }
-            }
-      */
+    
             
             return cell
     }
@@ -184,7 +103,7 @@ extension StoriesVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-       // return sectionTitles[section]
+    
         return viewModel.sectionTitles[section]
     }
     
