@@ -23,7 +23,6 @@ class FavoriteDaoRepository {
                 return
             } else {
                 
-                // self.newsItems.removeAll()
                 
                 var favoriteNews = [FavoriteNews]()
                 
