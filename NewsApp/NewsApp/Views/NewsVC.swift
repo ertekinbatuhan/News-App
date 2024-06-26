@@ -118,30 +118,12 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
            
             newsViewModel.fetchTopStories()
             
-           // loadTopStories()
+          
         } else {
             newsViewModel.searchNews(with: searchText)
         }
     }
 
-/*    func loadTopStories() {
-        APICaller.shared.getTopStories { [weak self] result in
-            switch result {
-            case .success(let articles):
-                self?.news = articles
-                self?.viewModels = articles.compactMap({
-                    NewsTableViewCellViewModel(title: $0.title, subTitle: $0.description ?? "", imageURL: URL(string: $0.urlToImage ?? ""))
-                })
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
- 
- */
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.isEmpty else {
@@ -149,23 +131,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         }
         
         newsViewModel.searchNews(with: text)
-    /*    APICaller.shared.search(with: text) { [weak self] result in
-            switch result {
-            case .success(let articles):
-                self?.news = articles
-                self?.viewModels = articles.compactMap({
-                    NewsTableViewCellViewModel(title: $0.title, subTitle: $0.description ?? "", imageURL: URL(string: $0.urlToImage ?? ""))
-                })
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                    self?.searchViewController.dismiss(animated: true)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-     
-     */
+  
     }
 
 }
