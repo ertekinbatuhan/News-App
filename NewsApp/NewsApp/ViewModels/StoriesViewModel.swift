@@ -25,7 +25,7 @@ class StoriesViewModel {
                 self?.handleResult(result, for: section)
             }
         case .General:
-            APICaller.shared.getGeneralStrories { [weak self] result in
+            APICaller.shared.getGeneralStories{ [weak self] result in
                 self?.handleResult(result, for: section)
             }
         case .Science:

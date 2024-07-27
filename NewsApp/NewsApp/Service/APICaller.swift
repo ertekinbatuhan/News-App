@@ -9,7 +9,7 @@ final class APICaller {
             guard let filePath = Bundle.main.path(forResource: "Config", ofType: "plist"),
                   let plist = NSDictionary(contentsOfFile: filePath) as? [String: Any],
                   let value = plist["NEWS_API_KEY_1"] as? String else {
-                fatalError("Couldn't find key news api key 1")
+                fatalError("Couldn't find key 'NEWS_API_KEY_1'")
             }
             return value
         }()
@@ -18,42 +18,53 @@ final class APICaller {
             guard let filePath = Bundle.main.path(forResource: "Config", ofType: "plist"),
                   let plist = NSDictionary(contentsOfFile: filePath) as? [String: Any],
                   let value = plist["NEWS_API_KEY_2"] as? String else {
-                fatalError("Couldn't find key 'news api key 2")
+                fatalError("Couldn't find key 'NEWS_API_KEY_2'")
             }
             return value
         }()
         
         static let topHeadlinesURL = URL(string: "https://newsapi.org/v2/everything?q=us&apiKey=\(apiKey1)")
-        static let entertainmentURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=\(apiKey2)")
-        static let sportsURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=\(apiKey2)")
-        static let generalURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=\(apiKey2)")
-        static let scienceURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=\(apiKey2)")
-        static let technologyURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=\(apiKey2)")
-        static let businessURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=\(apiKey2)")
-        static let searchUrlString = "https://newsapi.org/v2/top-headlines?apiKey=\(apiKey2)&q="
+        
+        static func url(for category: String, apiKey: String) -> URL? {
+            return URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&apiKey=\(apiKey)")
+        }
+        
+        static func searchURL(for query: String, apiKey: String) -> URL? {
+            return URL(string: "https://newsapi.org/v2/top-headlines?apiKey=\(apiKey)&q=\(query)")
+        }
     }
     
     private init() {}
     
-    public func getTopStories(completion: @escaping (Result<[News], Error>) -> Void) {
-        guard let url = Constants.topHeadlinesURL else {
-            return
-        }
-        
+    public func fetchStories(url: URL, completion: @escaping (Result<[News], Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
-            } else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    print("size : \(result.articles.count)")
-                    completion(.success(result.articles))
-                } catch {
-                    completion(.failure(error))
-                }
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                return
+            }
+            
+            do {
+                let result = try JSONDecoder().decode(APIResponse.self, from: data)
+                print("size : \(result.articles.count)")
+                completion(.success(result.articles))
+            } catch {
+                completion(.failure(error))
             }
         }
         task.resume()
+    }
+    
+    public func getTopStories(completion: @escaping (Result<[News], Error>) -> Void) {
+        guard let url = Constants.topHeadlinesURL else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+            return
+        }
+        fetchStories(url: url, completion: completion)
     }
 
     public func search(with query: String, completion: @escaping (Result<[News], Error>) -> Void) {
@@ -62,152 +73,43 @@ final class APICaller {
             return
         }
         
-        let urlString = Constants.searchUrlString + query
-        
-        guard let url = URL(string: urlString) else {
+        guard let url = Constants.searchURL(for: query, apiKey: Constants.apiKey2) else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
             return
         }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    print("size : \(result.articles.count)")
-                    completion(.success(result.articles))
-                } catch {
-                    completion(.failure(error))
-                }
-            }
+        fetchStories(url: url, completion: completion)
+    }
+    
+    public func getCategoryStories(category: String, apiKey: String, completion: @escaping (Result<[News], Error>) -> Void) {
+        guard let url = Constants.url(for: category, apiKey: apiKey) else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+            return
         }
-        task.resume()
+        fetchStories(url: url, completion: completion)
     }
     
     public func getEntertainmentStories(completion: @escaping (Result<[News], Error>) -> Void) {
-        guard let url = Constants.entertainmentURL else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    print("size : \(result.articles.count)")
-                    completion(.success(result.articles))
-                } catch {
-                    completion(.failure(error))
-                }
-            }
-        }
-        task.resume()
+        getCategoryStories(category: "entertainment", apiKey: Constants.apiKey2, completion: completion)
     }
     
     public func getSportsStories(completion: @escaping (Result<[News], Error>) -> Void) {
-        guard let url = Constants.sportsURL else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    print("size : \(result.articles.count)")
-                    completion(.success(result.articles))
-                } catch {
-                    completion(.failure(error))
-                }
-            }
-        }
-        task.resume()
+        getCategoryStories(category: "sports", apiKey: Constants.apiKey2, completion: completion)
     }
     
     public func getBusinessStories(completion: @escaping (Result<[News], Error>) -> Void) {
-        guard let url = Constants.businessURL else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    print("size : \(result.articles.count)")
-                    completion(.success(result.articles))
-                } catch {
-                    completion(.failure(error))
-                }
-            }
-        }
-        task.resume()
+        getCategoryStories(category: "business", apiKey: Constants.apiKey2, completion: completion)
     }
     
-    public func getGeneralStrories(completion: @escaping (Result<[News], Error>) -> Void) {
-        guard let url = Constants.generalURL else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    print("size : \(result.articles.count)")
-                    completion(.success(result.articles))
-                } catch {
-                    completion(.failure(error))
-                }
-            }
-        }
-        task.resume()
+    public func getGeneralStories(completion: @escaping (Result<[News], Error>) -> Void) {
+        getCategoryStories(category: "general", apiKey: Constants.apiKey2, completion: completion)
     }
     
     public func getScienceStories(completion: @escaping (Result<[News], Error>) -> Void) {
-        guard let url = Constants.scienceURL else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    print("size : \(result.articles.count)")
-                    completion(.success(result.articles))
-                } catch {
-                    completion(.failure(error))
-                }
-            }
-        }
-        task.resume()
+        getCategoryStories(category: "science", apiKey: Constants.apiKey2, completion: completion)
     }
     
     public func getTechnologyStories(completion: @escaping (Result<[News], Error>) -> Void) {
-        guard let url = Constants.technologyURL else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    print("size : \(result.articles.count)")
-                    completion(.success(result.articles))
-                } catch {
-                    completion(.failure(error))
-                }
-            }
-        }
-        task.resume()
+        getCategoryStories(category: "technology", apiKey: Constants.apiKey2, completion: completion)
     }
 }
 
