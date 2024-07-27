@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 import Firebase
 
-
 class FavoriteViewModel {
     
     let db = Firestore.firestore()

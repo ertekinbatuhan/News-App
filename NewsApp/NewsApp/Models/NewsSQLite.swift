@@ -8,6 +8,7 @@
 import Foundation
 
 struct NewsSQLite {
+    
     var news_name : String?
     var news_title : String?
     var news_image : String?

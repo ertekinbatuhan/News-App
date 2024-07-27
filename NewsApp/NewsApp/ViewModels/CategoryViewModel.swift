@@ -7,9 +7,7 @@
 
 import Foundation
 
-
 class CategoryViewModel {
-    
     
     func databaseCopy(){
         

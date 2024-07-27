@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 struct FavoriteNews {
+    
     let title: String
     let imageUrl: String
     let url : String?

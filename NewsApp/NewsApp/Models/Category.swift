@@ -4,9 +4,10 @@
 //
 //  Created by Batuhan Berk Ertekin on 17.04.2024.
 //
-
 import Foundation
+
 struct Category {
+    
     var category_id : Int
     var category_name : String
     var category_image : String

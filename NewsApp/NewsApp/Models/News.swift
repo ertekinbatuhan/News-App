@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 struct APIResponse : Codable {
     let articles : [News]
     

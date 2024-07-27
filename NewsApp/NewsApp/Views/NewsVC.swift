@@ -34,10 +34,7 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         tableView.dataSource = self
         
         ThemeManager.shared.updateTheme()
-        
-        
         createSearchBar()
-        
         newsViewModel.reloadTableView = { [weak self] in
                   DispatchQueue.main.async {
                       self?.tableView.reloadData()
@@ -62,9 +59,8 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         tableView.frame = view.bounds
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // return viewModels.count
+    
         return newsViewModel.viewModels.count
     }
     
@@ -76,7 +72,6 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         
         cell.configure(with: newsViewModel.viewModels[indexPath.row])
         
-    
         return cell
     }
     
@@ -117,13 +112,11 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         if searchText.isEmpty {
            
             newsViewModel.fetchTopStories()
-            
-          
+        
         } else {
             newsViewModel.searchNews(with: searchText)
         }
     }
-
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.isEmpty else {
@@ -133,6 +126,5 @@ class NewsVC: UIViewController , UITableViewDelegate , UITableViewDataSource , U
         newsViewModel.searchNews(with: text)
   
     }
-
 }
 

@@ -1,6 +1,7 @@
 import Foundation
 
 class StoriesViewModel {
+    
     var sectionTitles: [String] = ["General", "Business", "Technology", "Sports", "Entertainment", "Science"]
     var stories: [Int: [News]] = [:]
     var reloadTableView: (() -> Void)?

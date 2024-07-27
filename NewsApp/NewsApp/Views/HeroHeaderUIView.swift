@@ -37,7 +37,6 @@ class HeroHeaderUIView: UIView {
         super.init(frame: frame)
         
         addSubview(heroImageView)
-      //  addGradient()
     }
     
     override func layoutSubviews() {
