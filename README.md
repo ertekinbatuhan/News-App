@@ -37,7 +37,7 @@
   - A third-party library used to download and cache images asynchronously, improving performance and user experience.
  
  ## Architecture Used 
-The Finance Tracker app is built using the MVVM (Model-View-ViewModel) architectural pattern. This architecture helps to separate the business logic and data handling from the user interface, making the app more modular, testable, and maintainable.
+The News app is built using the MVVM (Model-View-ViewModel) architectural pattern. This architecture helps to separate the business logic and data handling from the user interface, making the app more modular, testable, and maintainable.
 
 - **Model**: Represents the data and business logic of the application. It handles the data operations and communicates with external services or databases.
 - **View**: The user interface of the app, responsible for displaying the data and handling user interactions.
